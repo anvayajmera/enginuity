@@ -56,8 +56,6 @@
   font-size: 1rem;
   color: #4b5563;
 }
-@import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@300;400;500;600;700;800;900&display=swap');
-
 :root {
   --primary: #000000;
   --secondary: #1a1a1a;

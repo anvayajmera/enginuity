@@ -1,0 +1,4 @@
+/*    /index.html   200
+
+# Netlify redirect rule: serve index.html for all routes (SPA fallback)
+/* /index.html 200
