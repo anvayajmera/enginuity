@@ -3,6 +3,10 @@
     {
       "source": "/(.*)",
       "destination": "https://www.enginuitystem.com/$1",
+      "has": [
+        { "type": "host", "value": "enginuitystem.com" }
+      ],
+      "statusCode": 301,
       "permanent": true
     }
   ],
