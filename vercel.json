@@ -6,9 +6,9 @@
       "permanent": true
     }
   ],
-  "routes": [
-    { "src": "\\/(.*\\..+)$", "dest": "\/$1" },
-    { "src": "\\/(.*)", "dest": "\/index.html" }
+  "rewrites": [
+    { "source": "/:path*.:ext", "destination": "/:path*.:ext" },
+    { "source": "/:path*", "destination": "/index.html" }
   ]
 }
 
