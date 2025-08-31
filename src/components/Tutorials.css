@@ -313,6 +313,19 @@
   max-height: 900px;
 }
 
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .paths-container-enhanced { grid-template-columns: 1fr; }
+  .path-card-enhanced { padding: 1.5rem; }
+  .section-title-enhanced { font-size: 2rem; }
+}
+
+@media (max-width: 768px) {
+  .tutorials-section-enhanced { padding: 4rem 0; }
+  .tutorial-orb-1, .tutorial-orb-2, .tutorial-orb-3, .tutorial-orb-4 { display: none; }
+  .paths-container-enhanced { gap: 1rem; }
+}
+
 .path-card-enhanced:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);

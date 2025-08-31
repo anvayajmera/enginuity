@@ -7,6 +7,7 @@
   gap: 2rem;
   justify-content: center;
   margin-top: 3rem;
+  flex-wrap: wrap;
 }
 .journey-card {
   background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
@@ -330,6 +331,19 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+}
+
+/* Make images and embedded content responsive */
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Buttons full-width on small screens */
+@media (max-width: 768px) {
+  .btn { width: 100%; }
+  .features-grid { grid-template-columns: 1fr; }
+  .journey-card { width: 100%; }
 }
 
 .section-header {
