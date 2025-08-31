@@ -6,11 +6,11 @@ const baseUrl = process.env.SITE_URL || 'https://www.enginuitystem.com';
 
 const manualRoutes = [
   '/',
+  '/un',
+  '/club',
+  '/research',
   '/tinko',
-  '/about',
-  '/tutorials',
-  '/contact',
-  '/features'
+  '/contact'
 ];
 
 // Discover routes by scanning local HTML and JSX files for hrefs
