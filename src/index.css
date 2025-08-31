@@ -1,0 +1,85 @@
+/* Site-wide section entrance animations and utilities */
+
+/* Generic reveal: subtle lift + fade */
+.reveal {
+	opacity: 0;
+	transform: translateY(24px) scale(0.995);
+	transition: opacity 700ms cubic-bezier(.2,.9,.2,1), transform 700ms cubic-bezier(.2,.9,.2,1);
+	will-change: opacity, transform;
+}
+
+.reveal.visible {
+	opacity: 1;
+	transform: translateY(0) scale(1);
+}
+
+/* Directional reveals */
+.reveal-left { transform: translateX(-40px) scale(0.995); }
+.reveal-right { transform: translateX(40px) scale(0.995); }
+.reveal-up { transform: translateY(40px) scale(0.995); }
+.reveal-zoom { transform: translateY(0) scale(0.92); }
+
+.reveal-left.visible,
+.reveal-right.visible,
+.reveal-up.visible,
+.reveal-zoom.visible {
+	transform: translateX(0) translateY(0) scale(1);
+}
+
+/* Stronger 'swoop' animation for large hero/section headers */
+.swoop {
+	opacity: 0;
+	transform: translateY(40px) skewY(-3deg) scale(0.98);
+	transition: opacity 900ms cubic-bezier(.22,.9,.3,1), transform 900ms cubic-bezier(.22,.9,.3,1);
+}
+.swoop.visible { opacity: 1; transform: translateY(0) skewY(0) scale(1); }
+
+/* Staggered children reveal utility. Use on a wrapper and toggle .visible */
+.stagger-group > * {
+	opacity: 0;
+	transform: translateY(12px) scale(0.995);
+	transition: opacity 600ms cubic-bezier(.2,.9,.2,1), transform 600ms cubic-bezier(.2,.9,.2,1);
+}
+.stagger-group.visible > * {
+	opacity: 1;
+	transform: translateY(0) scale(1);
+}
+
+/* Provide incremental delays up to 8 children */
+.stagger-group > *:nth-child(1) { transition-delay: 0.06s; }
+.stagger-group > *:nth-child(2) { transition-delay: 0.12s; }
+.stagger-group > *:nth-child(3) { transition-delay: 0.18s; }
+.stagger-group > *:nth-child(4) { transition-delay: 0.24s; }
+.stagger-group > *:nth-child(5) { transition-delay: 0.30s; }
+.stagger-group > *:nth-child(6) { transition-delay: 0.36s; }
+.stagger-group > *:nth-child(7) { transition-delay: 0.42s; }
+.stagger-group > *:nth-child(8) { transition-delay: 0.48s; }
+
+/* Utility to slightly delay entry for big layouts */
+.delayed { transition-delay: 0.18s !important; }
+
+/* Allow child elements to reveal themselves when they toggle their own .visible class
+	 (keeps components' per-element visibility logic working while still supporting
+	 wrapper-level stagger reveals). */
+.stagger-group > *.visible {
+	opacity: 1;
+	transform: translateY(0) scale(1);
+}
+
+/* Small accent animation for borders/accents */
+.accent-slide {
+	background-size: 200% 100%;
+	background-position: 0% 50%;
+	transition: background-position 900ms cubic-bezier(.22,.9,.3,1);
+}
+.accent-slide.visible { background-position: 100% 50%; }
+
+/* Keep parity with existing .fade-in utility in App.css — this is additive */
+.fade-in {
+	/* preserve existing behavior but slightly snappier when used with .visible */
+	opacity: 0;
+	transform: translateY(18px);
+	transition: opacity 680ms cubic-bezier(.2,.9,.2,1), transform 680ms cubic-bezier(.2,.9,.2,1);
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
