@@ -183,6 +183,7 @@
   .nav-link {
     padding: 0.375rem 0.75rem;
     font-size: 0.8rem;
+  color: var(--gray-800);
   }
 }
 
@@ -204,6 +205,10 @@
   top: 56px;
   right: 0.8rem;
   }
+
+/* Ensure dropdown links are readable on translucent backgrounds */
+.nav-links li .nav-link { color: var(--gray-800); }
+.navbar.scrolled .nav-link { color: var(--gray-700); }
 
   .nav-link {
     padding: 0.3rem 0.6rem;
