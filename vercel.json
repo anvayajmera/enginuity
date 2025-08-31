@@ -1,7 +1,14 @@
 {
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://www.enginuitystem.com/$1",
+      "permanent": true
+    }
+  ],
   "routes": [
-    { "src": "\/(.*\\..+)$", "dest": "\/$1" },
-    { "src": "\/(.*)", "dest": "\/index.html" }
+    { "src": "\\/(.*\\..+)$", "dest": "\/$1" },
+    { "src": "\\/(.*)", "dest": "\/index.html" }
   ]
 }
 
