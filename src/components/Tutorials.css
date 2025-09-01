@@ -675,10 +675,12 @@
 .btn-glow {
   position: absolute;
   top: 0;
-  left: -100%;
-  width: 100%;
+  /* start well off the left edge and be wider than the button so the sheen fully covers the button on hover */
+  left: -150%;
+  width: 300%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  /* broaden the center of the sheen so it visually covers the whole button */
+  background: linear-gradient(90deg, transparent 20%, rgba(255,255,255,0.35) 45%, rgba(255,255,255,0.35) 55%, transparent 80%);
   animation: btn-shine 3s infinite;
 }
 
@@ -776,10 +778,10 @@
 
 @keyframes btn-shine {
   0% {
-    left: -100%;
+    left: -150%;
   }
   100% {
-    left: 100%;
+    left: 150%;
   }
 }
 
