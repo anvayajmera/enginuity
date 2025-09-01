@@ -50,15 +50,16 @@ const Hero = () => {
       <div className="hero-inner">
         <div className="hero-content">
           <div className="hero-badge">
-            <span>🚀 Enginuity 2025</span>
+            <span>Enginuity Cohort II (2025)</span>
           </div>
-          <h1 className="glow-text visible">Invent. Engineer. <span className="underline">Inspire.</span></h1>
+          <h1 className="glow-text visible">Engineering <span className="underline"> Dreams</span></h1>
           <p className="hero-subtitle">
-            Join Enginuity: the club for future engineers, makers, and innovators. Build real-world projects, learn hands-on skills, and connect with a passionate STEM community.
+            Join Enginuity, the organization for future engineers and innovators. Recieve funding for real-world projects, learn hands-on skills, and collaborate with a passionate STEM community.
+    
           </p>
           <div className="hero-cta">
-            <a href="#about" className="btn btn-primary">Start Engineering</a>
-            <a href="#tutorials" className="btn btn-secondary">Explore Tracks</a>
+            <a href="/tinko" className="btn btn-primary">Start Engineering</a>
+            <a href="#info" className="btn btn-secondary">Learn More</a>
           </div>
         </div>
 

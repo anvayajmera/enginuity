@@ -8,6 +8,7 @@ import Tutorials from './components/Tutorials';
 import CTA from './components/CTA';
 import Contact from './components/Contact';
 import SEO from './components/SEO';
+import Impact from './components/Impact';
 import './App.css';
 
 const Club = () => (
@@ -22,17 +23,7 @@ const Club = () => (
   </>
 );
 
-const Research = () => (
-  <>
-    <SEO
-      title="Research — Enginuity STEM"
-      description="Enginuity STEM research projects and student-led investigations into STEM topics."
-      path="/research"
-      keywords={["enginuity", "research", "stem research"]}
-    />
-    <div className="page-placeholder"><h2>Research</h2><p>Coming soon.</p></div>
-  </>
-);
+// Research page removed; replaced by Impact.
 
 const UNWork = () => (
   <>
@@ -80,9 +71,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/club" element={<Club />} />
-        <Route path="/research" element={<Research />} />
-        <Route path="/unwork" element={<UNWork />} />
+  <Route path="/club" element={<Club />} />
+  <Route path="/impact" element={<Impact />} />
+  <Route path="/unwork" element={<UNWork />} />
         <Route path="/tinko" element={<TinkoYSWS />} />
         <Route path="/contact" element={<>
           <SEO

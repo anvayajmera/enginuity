@@ -16,12 +16,12 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { to: '/', label: 'Home' },
-    { to: '/unwork', label: 'UN' },
-    { to: '/club', label: 'Club' },
-    { to: '/research', label: 'Research' },
-    { to: '/tinko', label: 'Tinko' },
-    { to: '/contact', label: 'Contact' },
+  { to: '/', label: 'Home' },
+  { to: '/tinko', label: 'Tinko' },
+  { to: '/impact', label: 'Impact' },
+  { to: '/unwork', label: 'UN' },
+  { to: '/club', label: 'Club' },
+  { to: '/contact', label: 'Contact' },
   ];
 
   return (

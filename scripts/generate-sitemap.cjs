@@ -8,7 +8,7 @@ const manualRoutes = [
   '/',
   '/un',
   '/club',
-  '/research',
+  '/impact',
   '/tinko',
   '/contact'
 ];
