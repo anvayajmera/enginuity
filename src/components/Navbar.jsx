@@ -17,10 +17,10 @@ const Navbar = () => {
 
   const navLinks = [
   { to: '/', label: 'Home' },
-  { to: '/tinko', label: 'Tinko' },
   { to: '/impact', label: 'Impact' },
-  { to: '/unwork', label: 'UN' },
+  { to: '/tinko', label: 'Tinko' },
   { to: '/club', label: 'Club' },
+  { to: '/unwork', label: 'UN' },
   { to: '/contact', label: 'Contact' },
   ];
 
