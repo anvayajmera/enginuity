@@ -54,8 +54,7 @@ const CTA = () => {
           <div className="cta-header-new">
             <div className="cta-badge">Join the Revolution</div>
             <h2 className="cta-title-new">
-              Ready to Shape the 
-              <span className="highlight-text-new"> Future of STEM</span>?
+              Ready to take a step forward <span className="highlight-text-new">In the Future of STEM?</span>
             </h2>
             <p className="cta-description-new">
               Join a community of young scientists, engineers, and innovators. 
