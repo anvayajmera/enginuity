@@ -16,10 +16,13 @@ const routes = [
   '/features'
 ];
 
-const baseUrl = process.env.SITE_URL || 'http://localhost:5174/unwork';
+// Default to production site; allow override via SITE_URL
+const rawBase = process.env.SITE_URL || 'https://www.enginuitystem.com';
+const baseUrl = String(rawBase).replace(/\/$/, '');
 
 const urls = routes.map((route) => {
-  return `  <url>\n    <loc>${baseUrl}${route}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
+  const loc = route === '/' ? `${baseUrl}/` : `${baseUrl}${route.startsWith('/') ? route : '/' + route}`;
+  return `  <url>\n    <loc>${loc}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
 });
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>`;
