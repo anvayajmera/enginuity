@@ -4,24 +4,16 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Features from './components/Features';
 import Stats from './components/Stats';
+import Testimonial from './components/Testimonial';
 import Tutorials from './components/Tutorials';
 import CTA from './components/CTA';
+import Club from './components/Club';
 import Contact from './components/Contact';
 import SEO from './components/SEO';
 import Impact from './components/Impact';
 import './App.css';
 
-const Club = () => (
-  <>
-    <SEO
-      title="Club — Enginuity STEM"
-      description="Enginuity STEM Club: projects, meetups, and community for student makers."
-      path="/club"
-      keywords={["enginuity", "club", "stem club", "projects"]}
-    />
-    <div className="page-placeholder"><h2>Club</h2><p>Coming soon.</p></div>
-  </>
-);
+// Club component is provided by `src/components/Club` and imported above.
 
 // Research page removed; replaced by Impact.
 
@@ -60,6 +52,7 @@ const Home = () => (
     />
     <Hero />
     <About />
+  <Testimonial />
     <Stats />
   </>
 );

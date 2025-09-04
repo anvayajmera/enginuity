@@ -54,13 +54,12 @@ const Tutorials = () => {
     {
       id: 'introduction',
       title: 'Foundation Track',
-      subtitle: 'Beginner Path',
       audience: 'Early Coders',
-      location: 'Ghana Students',
+      location: 'Students',
       reward: 'Micro:bit Kit',
       difficulty: 'Beginner',
       duration: '6 weeks',
-      description: 'Perfect foundation for young innovators starting their technology journey.',
+      description: 'With our interactive curriculum technology, this is the perfect foundation for young innovators starting their STEM journey.',
       features: [
         'Visual programming environment',
         'Hardware prototyping basics',
@@ -72,18 +71,17 @@ const Tutorials = () => {
     },
     {
       id: 'advanced',
-      title: 'Professional Track',
-      subtitle: 'Advanced Path', 
+      title: 'Advanced Track',
       audience: 'Advanced Coders',
-      location: 'US High Schools',
+      location: 'Hack Club',
       reward: 'Arduino Mega Kit',
       difficulty: 'Advanced',
       duration: '8 weeks',
-      description: 'Intensive program for experienced developers ready for industry challenges.',
+      description: 'This is an intensive program for experienced developers ready for new challenges (and a cool reward to continue your journey).',
       features: [
-        'Professional development workflows',
-        'Advanced IoT architectures',
-        'Machine learning integration'
+        'Professional IoT development',
+        'Machine learning integration',
+        'Interactive dashboard creation'
       ],
       color: 'purple',
       gradient: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%)',
@@ -206,7 +204,7 @@ const Tutorials = () => {
                 </div>
                 {/* Glassmorphism What You'll Learn Section */}
                 <div className="learn-section-glass">
-                  <h4 className="learn-title-glass">What You'll Learn</h4>
+                  <h4 className="learn-title-glass">What to Expect</h4>
                   <ul className="learn-list-glass">
                     {path.features.map((feature, idx) => (
                       <li key={idx} className="learn-item-glass">

@@ -32,19 +32,19 @@ const About = () => {
     {
       id: '01',
       title: 'Innovativion',
-      description: 'We believe in thinking differently, challenging conventions, and building solutions that matter. Every project starts with a question: how can we make this better?',
+      description: 'From curriculum to engineering kits, we believe in creating solutions that matter. Every project starts with a question: how can we make this better?',
       iconPath: 'M13 10V3L4 14h7v7l9-11h-7z' // Lightning bolt
     },
     {
       id: '02',
       title: 'Collaboration',
-      description: 'Great ideas emerge from great teams. Our community thrives on collaboration, peer learning, and the exchange of diverse perspectives.',
+      description: 'Great ideas emerge from great partnerships. Following SDG 17, our community connects with schools around the world to bridge the digital divide.',
       iconPath: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z' // Users
     },
     {
       id: '03',
       title: 'Impact',
-      description: 'We don\'t just code for fun—we code for purpose. Every project aims to solve real problems and create meaningful change in our communities.',
+      description: 'We don\'t just code for fun. We code for purpose. Every project of Enginuity, like Tinko, ensures all ranges of students can enter the field of STEM.',
       iconPath: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z' // Star
     }
   ];

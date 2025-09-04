@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import './Stats.css';
 
 const Stats = () => {
-  const [countersStarted, setCountersStarted] = useState(false);
+  const [_countersStarted, _setCountersStarted] = useState(false);
   const statsRef = useRef(null);
   const svgPathRef = useRef(null);
   const particleSystemRef = useRef(null);
@@ -10,7 +10,7 @@ const Stats = () => {
   const stats = [
     {
       number: 1500,
-      label: 'IMPACTED',
+      label: 'DIRECTLY IMPACTED',
       icon: (
         <svg width="36" height="36" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
           <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zM8 11c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zM8 13c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zM16 13c-.29 0-.62.02-.97.05 1.16.84 1.97 1.98 1.97 3.45V19h6v-2.5C23 14.17 18.33 13 16 13z" />
@@ -20,7 +20,7 @@ const Stats = () => {
     },
     {
       number: 124,
-      label: 'CURRICULA & KITS',
+      label: 'CURRICULUM & KITS DONATED',
       icon: (
         <svg width="36" height="36" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
           <path d="M21 4H3c-1.1 0-2 .9-2 2v12a1 1 0 001 1h20a1 1 0 001-1V6c0-1.1-.9-2-2-2zM8 18H5v-2h3v2zm0-4H5v-2h3v2zm11 4h-9v-2h9v2zm0-4h-9v-2h9v2z" />
@@ -30,7 +30,7 @@ const Stats = () => {
     },
     {
       number: 34,
-      label: 'WORKSHOPS',
+      label: 'WORKSHOP OPTIONS',
       icon: (
         <svg width="36" height="36" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
           <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z" />
@@ -39,8 +39,8 @@ const Stats = () => {
       description: ''
     },
     {
-      number: 6,
-      label: 'SCHOOLS TAUGHT',
+      number: 8,
+      label: 'SCHOOL PARTNERSHIPS',
       icon: (
         <svg width="36" height="36" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 3L2 9l10 6 10-6-10-6zm0 8.5L6 9.33v2.83L12 16l6-3.84V9.33L12 11.5zM4 12.2v5.8l8 4 8-4v-5.8L12 16.2 4 12.2z" />
@@ -168,7 +168,7 @@ const Stats = () => {
           <div className="section-badge-stats">Our Impact</div>
           <h2 className="section-title-stats">Growing Global Community</h2>
           <p className="section-description-stats">
-            Numbers that reflect our commitment to nurturing the next generation of tech leaders.
+            View the numbers that reflect our commitment to creating the next generation of tech leaders.
           </p>
         </div>
         

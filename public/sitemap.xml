@@ -1,32 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.enginuitystem.com/</loc>
+    <loc>http://localhost:5174/unwork/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.enginuitystem.com/un</loc>
+    <loc>http://localhost:5174/unwork/unwork</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.enginuitystem.com/club</loc>
+    <loc>http://localhost:5174/unwork/tinko</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.enginuitystem.com/impact</loc>
+    <loc>http://localhost:5174/unwork/about</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.enginuitystem.com/tinko</loc>
+    <loc>http://localhost:5174/unwork/tutorials</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.enginuitystem.com/contact</loc>
+    <loc>http://localhost:5174/unwork/contact</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>http://localhost:5174/unwork/features</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

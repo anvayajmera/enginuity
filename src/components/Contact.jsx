@@ -90,17 +90,8 @@ const Contact = () => {
           className={`contact-container fade-in reveal-right stagger-group ${formVisible ? 'visible' : ''}`}
         >
           <div className="contact-info">
-            <div className="contact-card">
-              <div className="contact-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-              </div>
-              <h3>Visit Us</h3>
-              <p>123 Innovation Street<br/>Tech City, TC 12345</p>
-            </div>
-            
+         
+         
             <div className="contact-card">
               <div className="contact-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -109,7 +100,7 @@ const Contact = () => {
                 </svg>
               </div>
               <h3>Email Us</h3>
-              <p>hello@enginuity.com<br/>support@enginuity.com</p>
+              <p>anvayajmera9@gmail.com<br/>a.ajmera@apeers.com</p>
             </div>
             
             <div className="contact-card">
@@ -119,7 +110,7 @@ const Contact = () => {
                 </svg>
               </div>
               <h3>Call Us</h3>
-              <p>+1 (555) 123-4567<br/>Mon-Fri 9AM-6PM</p>
+              <p>+1 (908) 524-4059<br/>Mon-Sun 1PM-8PM</p>
             </div>
           </div>
 

@@ -2,11 +2,11 @@ const fs = require('fs');
 const path = require('path');
 
 // Edit this list to include all routes you want indexed
-const baseUrl = process.env.SITE_URL || 'https://www.enginuitystem.com';
+const baseUrl = process.env.SITE_URL || 'http://localhost:5174/unwork';
 
 const manualRoutes = [
   '/',
-  '/un',
+  '/unwork',
   '/club',
   '/impact',
   '/tinko',

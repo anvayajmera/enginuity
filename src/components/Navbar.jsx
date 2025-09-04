@@ -5,7 +5,6 @@ import logo from '../assets/enginuitylogo.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeLink, setActiveLink] = useState('hero');
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {

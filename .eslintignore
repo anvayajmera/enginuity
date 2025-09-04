@@ -1,0 +1,10 @@
+# Ignore build and generated assets
+node_modules/
+public/
+.vercel/
+dist/
+build/
+archive/original-single-file.html
+
+# Ignore env, logs
+*.log

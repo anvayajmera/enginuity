@@ -1,9 +1,14 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Edit this list to include all routes you want indexed
 const routes = [
   '/',
+  '/unwork',
   '/tinko',
   '/about',
   '/tutorials',
@@ -11,7 +16,7 @@ const routes = [
   '/features'
 ];
 
-const baseUrl = process.env.SITE_URL || 'https://www.enginuitystem.com';
+const baseUrl = process.env.SITE_URL || 'http://localhost:5174/unwork';
 
 const urls = routes.map((route) => {
   return `  <url>\n    <loc>${baseUrl}${route}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`;

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import useIntersectionObserver from '../hooks/useIntersectionObserver';
 import './CTA.css';
 
@@ -54,10 +54,10 @@ const CTA = () => {
           <div className="cta-header-new">
             <div className="cta-badge">Join the Revolution</div>
             <h2 className="cta-title-new">
-              Ready to take a step forward <span className="highlight-text-new">In the Future of STEM?</span>
+              Ready to Take a Step Forward <span className="highlight-text-new">in the Future of STEM?</span>
             </h2>
             <p className="cta-description-new">
-              Join a community of young scientists, engineers, and innovators. 
+              Join a platform teaching young scientists, engineers, and innovators. 
               Develop cutting-edge projects, master new technologies, and solve real-world problems through STEM.
             </p>
           </div>
@@ -70,11 +70,11 @@ const CTA = () => {
             
             <div className="cta-secondary-actions-new">
               <a href="#tutorials" className="secondary-link-new">
-                <span>View Tutorials</span>
+                <span>Hack Club</span>
                 <div className="link-underline"></div>
               </a>
               <a href="https://discord.gg/hackclub" className="secondary-link-new">
-                <span>Join Community</span>
+                <span>Join Us</span>
                 <div className="link-underline"></div>
               </a>
               <a href="#about" className="secondary-link-new">
