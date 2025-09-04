@@ -1,6 +1,6 @@
-# YSWS Hack Club - React Website
+# Enginuity — React Website
 
-A modern, premium React.js website for the Young Software Workshop Series (YSWS) Hack Club. This project converts the original HTML/CSS/JS website to a React-based architecture while maintaining all premium animations and effects.
+A modern, premium React.js website for Enginuity. This project converts the original HTML/CSS/JS website to a React-based architecture while maintaining all premium animations and effects.
 
 ## ✨ Features
 
@@ -123,11 +123,11 @@ The build process creates an optimized production bundle with:
 
 ## 🤝 Contributing
 
-This project maintains the exact design and functionality of the original YSWS Hack Club website while providing a modern React architecture for easier maintenance and development.
+This project maintains the design and functionality of the original site while providing a modern React architecture for easier maintenance and development.
 
 ## 📄 License
 
-© 2025 YSWS Hack Club. All rights reserved.+ Vite
+© 2025 Enginuity. All rights reserved.+ Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

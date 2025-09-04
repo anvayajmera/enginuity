@@ -29,7 +29,7 @@ const UNWork = () => (
   </>
 );
 
-const TinkoYSWS = () => (
+const TinkoEnginuity = () => (
   <>
     <SEO
       title="Tinko — Enginuity STEM Tutorials"
@@ -67,7 +67,7 @@ function App() {
   <Route path="/club" element={<Club />} />
   <Route path="/impact" element={<Impact />} />
   <Route path="/unwork" element={<UNWork />} />
-        <Route path="/tinko" element={<TinkoYSWS />} />
+  <Route path="/tinko" element={<TinkoEnginuity />} />
         <Route path="/contact" element={<>
           <SEO
             title="Contact — Enginuity STEM"
