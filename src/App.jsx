@@ -45,7 +45,7 @@ const TinkoEnginuity = () => (
 const Home = () => (
   <>
     <SEO
-      title="Enginuity STEM — Project-based STEM tutorials & tracks"
+    title="Enginuity: STEM For All"
       description="Enginuity STEM: project-based tutorials, tracks, and resources to learn coding, electronics, and hands-on STEM."
       path="/"
       keywords={["enginuity", "stem tutorials", "project-based learning", "coding tutorials"]}
