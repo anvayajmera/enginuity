@@ -287,28 +287,30 @@ const Club = () => {
               </div>
             </div>
 
-            <div className="gallery-portrait left">
-              <img src={apexweather} alt="Apex weather project" />
-            </div>
-            <div className="gallery-copy">
-              <div className="gallery-copy-inner">
-                <h3 className="gallery-title">Apex: Launches, Field Work, & Space Data</h3>
-                <p className="gallery-lead">Apex brings launch telemetry, field sensors, and space-enabled analysis together — student teams design, deploy, and analyze real systems.</p>
+            <div className="gallery-portraits">
+              <div className="gallery-portrait left">
+                <img src={apexweather} alt="Apex weather project" />
+              </div>
+              <div className="gallery-copy">
+                <div className="gallery-copy-inner">
+                  <h3 className="gallery-title">Apex: Launches, Field Work, & Space Data</h3>
+                  <p className="gallery-lead">Apex brings launch telemetry, field sensors, and space-enabled analysis together — student teams design, deploy, and analyze real systems.</p>
 
-                <ul className="gallery-points" aria-hidden>
-                  <li><strong>Launch telemetry</strong> — telemetry capture and analysis from suborbital tests.</li>
-                  <li><strong>Field sensing</strong> — distributed weather & environmental sensors.</li>
-                  <li><strong>Space data</strong> — satellite/telemetry integrations for classroom projects.</li>
-                </ul>
+                  <ul className="gallery-points" aria-hidden>
+                    <li><strong>Launch telemetry</strong> — telemetry capture and analysis from suborbital tests.</li>
+                    <li><strong>Field sensing</strong> — distributed weather & environmental sensors.</li>
+                    <li><strong>Space data</strong> — satellite/telemetry integrations for classroom projects.</li>
+                  </ul>
 
-                <div className="gallery-cta">
-                  <a href="/contact" className="btn primary small">Collaborate on Apex</a>
-                  <a href="#join" className="btn ghost small">Start a project</a>
+                  <div className="gallery-cta">
+                    <a href="/contact" className="btn primary small">Collaborate on Apex</a>
+                    <a href="#join" className="btn ghost small">Start a project</a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="gallery-portrait right">
-              <img src={apexproject} alt="Apex project portrait" />
+              <div className="gallery-portrait right">
+                <img src={apexproject} alt="Apex project portrait" />
+              </div>
             </div>
           </div>
         </div>
