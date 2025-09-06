@@ -178,10 +178,11 @@ const Club = () => {
                 </div>
               </div>
 
-              <div className="gallery-portrait left">
-                <img src={eyfun} alt="EY Fun program portrait" />
-              </div>
-              <div className="gallery-copy">
+              <div className="gallery-portraits">
+                <div className="gallery-portrait left">
+                  <img src={eyfun} alt="EY Fun program portrait" />
+                </div>
+                <div className="gallery-copy">
                 <div className="gallery-copy-inner">
                   <h3 className="gallery-title">Successfully Proving Youth Impact</h3>
                   <p className="gallery-lead">Through UN partnership pilots we support curriculum, field deployments, and open evaluation so student work leads to measurable learning and community outcomes.</p>
@@ -197,9 +198,10 @@ const Club = () => {
                     <a href="#research" className="btn ghost small">See research</a>
                   </div>
                 </div>
-              </div>
-              <div className="gallery-portrait right">
-                <img src={hlpfun} alt="HLP Fun program portrait" />
+                </div>
+                <div className="gallery-portrait right">
+                  <img src={hlpfun} alt="HLP Fun program portrait" />
+                </div>
               </div>
             </div>
 

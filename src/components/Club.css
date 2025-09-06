@@ -342,6 +342,22 @@
   .sdg-grid { grid-template-columns: 1fr; }
 }
 
+/* Mobile: show copy first, then portraits side-by-side where space allows */
+@media (max-width: 600px) {
+  .un-gallery-box { padding: 0.75rem; }
+  /* Stack top items vertically (already handled), but ensure copy appears before portraits */
+  .gallery-portraits { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+  .gallery-copy { order: -1; padding: 0.75rem 0.5rem; text-align: left; }
+  /* Place the two portraits next to each other in a small two-column layout */
+  .gallery-portraits .gallery-portrait { height: 180px; }
+  .gallery-portraits { grid-template-columns: 1fr 1fr; }
+  .gallery-portraits .gallery-copy { grid-column: 1 / -1; order: -1; }
+  .gallery-portraits .gallery-portrait.left { border-radius: 8px; }
+  .gallery-portraits .gallery-portrait.right { border-radius: 8px; }
+  .gallery-copy-inner { text-align: left; }
+  .gallery-title { font-size: 1.25rem; }
+}
+
 /* impact selector inside navbar fallbacks */
 .impact-nav-select, .impact-nav-select option { font-weight: 600; }
 
