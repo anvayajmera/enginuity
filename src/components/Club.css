@@ -578,3 +578,28 @@
   }
   .research-feature-box .feature-copy { padding: 0.9rem; }
 }
+
+/* Apex / Research gallery: text-first and full-size images for smaller screens */
+@media (max-width: 1024px) {
+  .un-gallery-box.apex-gallery { grid-template-columns: 1fr; gap: 1rem; }
+
+  /* Top row items (apexwork, apexlaunch, apexspace) become full-width stacked */
+  .un-gallery-box.apex-gallery .un-gallery-top { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .un-gallery-box.apex-gallery .un-gallery-top .top-item img,
+  .un-gallery-box.apex-gallery .un-gallery-top .top-item video { width: 100%; height: 360px; object-fit: cover; display: block; border-radius: 12px; }
+
+  /* Make the gallery copy appear first and span full width */
+  .un-gallery-box.apex-gallery .gallery-portraits { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .un-gallery-box.apex-gallery .gallery-copy { order: -1; grid-column: 1 / -1; padding: 1rem; margin: 0; max-width: none; text-align: left; }
+
+  /* Portraits sit below the copy and fill their boxes */
+  .un-gallery-box.apex-gallery .gallery-portrait { grid-column: 1 / -1; width: 100%; height: 340px; margin: 0; }
+  .un-gallery-box.apex-gallery .gallery-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 12px; }
+}
+
+@media (max-width: 768px) {
+  .un-gallery-box.apex-gallery .un-gallery-top .top-item img,
+  .un-gallery-box.apex-gallery .un-gallery-top .top-item video { height: 220px; }
+  .un-gallery-box.apex-gallery .gallery-portrait { height: 220px; }
+  .un-gallery-box.apex-gallery .gallery-copy { padding: 0.75rem; }
+}
