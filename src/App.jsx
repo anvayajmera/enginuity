@@ -10,7 +10,6 @@ import CTA from './components/CTA';
 import Club from './components/Club';
 import Contact from './components/Contact';
 import SEO from './components/SEO';
-import Impact from './components/Impact';
 import './App.css';
 
 // Club component is provided by `src/components/Club` and imported above.
@@ -65,8 +64,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
   <Route path="/club" element={<Club />} />
-  <Route path="/impact" element={<Impact />} />
-  <Route path="/unwork" element={<UNWork />} />
+  {/* Serve Club component at /impact (renamed) */}
+  <Route path="/impact" element={<Club />} />
   <Route path="/tinko" element={<TinkoEnginuity />} />
         <Route path="/contact" element={<>
           <SEO

@@ -53,6 +53,7 @@
 .nav-links {
   display: flex;
   gap: 0.5rem;
+  align-items: center;
   list-style: none;
 }
 
@@ -88,7 +89,21 @@
 
 .nav-link {
   position: relative;
-  padding: 0.5rem 1rem;
+  padding: 0.45rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px; /* slightly reduced gap so arrow sits closer */
+  min-height: 40px; /* keep items vertically consistent */
+
+.nav-impact-select{
+  background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.06);
+  color: var(--nav-link-color, #fff);
+  padding: 6px 10px; border-radius: 8px; font-weight:600;
+  transition: transform .18s ease, box-shadow .2s ease;
+}
+.nav-impact-select:focus{ transform: translateY(-3px); box-shadow: 0 10px 30px rgba(59,130,246,0.12); outline: none; }
+.nav-select-item{ display:flex; align-items:center }
   color: var(--gray-700);
   text-decoration: none;
   font-weight: 500;
@@ -235,3 +250,30 @@
   display: inline-block;
 }
 }
+
+/* Impact dropdown attached to the Impact nav link */
+.nav-link-wrapper { position: relative; display: flex; align-items: center; }
+
+/* Compact arrow button beside Impact that toggles a tiny menu */
+.nav-impact-toggle { background: transparent; border: none; padding: 4px; border-radius: 8px; cursor: pointer; color: inherit; transition: transform .16s ease, background .16s ease; display: inline-flex; align-items: center; justify-content: center; margin-left: 2px; }
+.nav-impact-toggle:hover { transform: translateY(-2px); background: rgba(59,130,246,0.04); }
+.nav-impact-toggle svg { display: block; transition: transform .22s cubic-bezier(.2,.9,.2,1); }
+.nav-impact-menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 160px; background: rgba(255,255,255,0.98); border-radius: 12px; padding: 6px; box-shadow: 0 18px 40px rgba(2,6,23,0.12); border: 1px solid rgba(59,130,246,0.06); opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity .16s ease, transform .16s ease; z-index: 60; }
+.nav-impact-menu.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.nav-impact-menu button { background: transparent; border: none; display: block; width: 100%; text-align: left; padding: 8px 10px; border-radius: 8px; color: var(--gray-800); font-weight: 600; cursor: pointer; }
+.nav-impact-menu button:hover { background: rgba(59,130,246,0.06); color: var(--club-primary-blue); }
+
+/* no nested submenu - simplified impact menu */
+
+/* rotate arrow when open */
+.nav-impact-menu.open ~ .nav-impact-toggle svg,
+.nav-impact-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+
+/* make arrow white when parent nav item is hovered, active, or the menu is open */
+.nav-link:hover .nav-impact-toggle,
+.nav-link.active .nav-impact-toggle,
+.nav-impact-toggle[aria-expanded="true"] {
+  color: #fff;
+}
+
+@media (max-width: 720px) { .nav-impact-menu { display: none; } .nav-impact-toggle { display: none; } }

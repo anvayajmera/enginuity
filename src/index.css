@@ -85,3 +85,73 @@
 }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
+
+/* -----------------------------
+	 Mobile-only responsive tweaks
+	 - Strictly scoped to small viewports so desktop/laptop is unchanged
+	 - Portrait: stack galleries, hide side portraits to reduce clutter
+	 - Landscape: preserve more columns where space allows
+	 ----------------------------- */
+
+/* Base mobile breakpoint (phones / small tablets) */
+@media (max-width: 900px) {
+	/* Slightly smaller base type on very narrow screens */
+	:root { font-size: 15px; }
+
+	/* containers: reduce horizontal paddings for mobile */
+	.container { padding-left: 0.75rem; padding-right: 0.75rem; }
+
+	/* Make all media scale nicely */
+	img, picture, video { max-width: 100%; height: auto; }
+
+	/* CTA adjustments: center and increase tap area */
+	.apply-wrap { justify-content: center; }
+	.btn { min-height: 48px; padding-left: 1rem; padding-right: 1rem; }
+	.cta-card { padding: 2rem; border-radius: 18px; }
+
+		/* Keep the left/center/right gallery structure but make portraits narrow on mobile
+			 so the layout feels like the desktop composition while remaining portrait-friendly. */
+		.un-gallery-box, .un-gallery-box.apex-gallery, .club-box {
+			display: grid;
+			grid-template-columns: minmax(64px, 18%) 1fr minmax(64px, 18%);
+			gap: 0.5rem;
+			align-items: start;
+		}
+
+		/* Top row thumbnails stay in a row but are tighter on phones */
+		.un-gallery-top { flex-direction: row; gap: 0.5rem; }
+		.un-gallery-top .top-item { height: 90px; }
+
+		/* Keep side portraits visible but compact */
+		.gallery-portrait.left, .gallery-portrait.right { display: block; }
+		.gallery-portrait { width: 100%; }
+		.gallery-portrait img { width: 100%; height: auto; max-width: 140px; object-fit: cover; border-radius: 8px; }
+
+		/* Reduce gallery copy padding so text stays readable */
+		.gallery-copy-inner { padding: 0.6rem; }
+
+		/* Constrain videos so they don't dominate the viewport height */
+		video { max-height: 42vh; width: 100%; }
+}
+
+/* Landscape phones/tablets — keep more layout but still mobile-friendly */
+@media (max-width: 900px) and (orientation: landscape) {
+	:root { font-size: 15.5px; }
+
+	/* Let gallery become two-column in landscape when it helps readability */
+	.un-gallery-box, .un-gallery-box.apex-gallery {
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+		align-items: start;
+	}
+
+	/* Allow side portraits to be visible in landscape if there's room */
+	.gallery-portrait.left, .gallery-portrait.right { display: block; }
+
+	.un-gallery-top { flex-direction: row; }
+	.un-gallery-top .top-item { height: 140px; }
+
+	/* Slightly larger video cap in landscape */
+	video { max-height: 55vh; }
+}
+

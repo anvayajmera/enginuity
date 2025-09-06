@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 // Edit this list to include all routes you want indexed
 const routes = [
   '/',
-  '/unwork',
+  '/impact',
   '/tinko',
   '/about',
   '/tutorials',
