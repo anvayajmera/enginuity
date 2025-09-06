@@ -53,7 +53,6 @@ const Home = () => (
     <Hero />
     <About />
   <Testimonial />
-    <Stats />
   </>
 );
 
