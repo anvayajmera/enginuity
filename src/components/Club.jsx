@@ -16,7 +16,7 @@ import apexweather from '../../images/apexweather.png';
 
 const Club = () => {
   const particlesRef = useRef(null);
-  const [selectedSection, setSelectedSection] = useState('un');
+  const [selectedSection, setSelectedSection] = useState('hero');
   const sectionsRef = useRef([]);
   const location = useLocation();
 
@@ -104,7 +104,7 @@ const Club = () => {
         </div>
       </div>
 
-      <section className="club-hero">
+  <section id="hero" className="club-hero">
         <div className="container">
           <div className="hero-inner">
             <div className="hero-content">
@@ -168,7 +168,7 @@ const Club = () => {
                   <img src={anvayspeakingun} alt="Anvay speaking at UN" />
                 </div>
                 <div className="top-item">
-                  <video controls playsInline className="top-video">
+                  <video controls playsInline preload="metadata" className="top-video">
                     <source src={larryun} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>

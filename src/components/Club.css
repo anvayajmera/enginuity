@@ -316,6 +316,7 @@
 .gallery-portrait.left img { object-position: top center; }
 .gallery-portrait.right img { object-position: bottom center; }
 .un-gallery-top .top-item video, .un-gallery-top .top-item video::-webkit-media-controls { width: 100%; height: 100%; object-fit: cover; }
+.top-video { width: 100%; height: 100%; display: block; }
 .top-video-placeholder { height: 100%; display:flex; align-items:center; justify-content:center; font-style: italic; color: rgba(2,6,23,0.55); }
 
 /* slightly increase main portraits to accommodate top row */
@@ -342,16 +343,17 @@
   .sdg-grid { grid-template-columns: 1fr; }
 }
 
+/* Desktop: keep gallery-portraits transparent to preserve original 3-column layout */
+.gallery-portraits { display: contents; }
+
 /* Mobile: show copy first, then portraits side-by-side where space allows */
 @media (max-width: 600px) {
   .un-gallery-box { padding: 0.75rem; }
-  /* Stack top items vertically (already handled), but ensure copy appears before portraits */
-  .gallery-portraits { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
-  .gallery-copy { order: -1; padding: 0.75rem 0.5rem; text-align: left; }
+  /* Ensure the gallery-portraits becomes a visible grid on small screens */
+  .gallery-portraits { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .gallery-copy { order: -1; padding: 0.75rem 0.5rem; text-align: left; grid-column: 1 / -1; }
   /* Place the two portraits next to each other in a small two-column layout */
   .gallery-portraits .gallery-portrait { height: 180px; }
-  .gallery-portraits { grid-template-columns: 1fr 1fr; }
-  .gallery-portraits .gallery-copy { grid-column: 1 / -1; order: -1; }
   .gallery-portraits .gallery-portrait.left { border-radius: 8px; }
   .gallery-portraits .gallery-portrait.right { border-radius: 8px; }
   .gallery-copy-inner { text-align: left; }

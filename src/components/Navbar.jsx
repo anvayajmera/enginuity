@@ -26,9 +26,10 @@ const Navbar = () => {
   const [impactOpen, setImpactOpen] = useState(false);
 
   const handleImpactSelect = (val) => {
+    const target = val === 'hero' ? 'hero' : val;
     if (location.pathname === '/impact') {
       // already on impact page: scroll directly
-      const el = document.getElementById(val);
+      const el = document.getElementById(target);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         el.setAttribute('tabindex', '-1');
@@ -36,7 +37,7 @@ const Navbar = () => {
       }
     } else {
       // navigate to /impact and pass desired section in state
-      navigate('/impact', { state: { scrollTo: val } });
+      navigate('/impact', { state: { scrollTo: target } });
     }
   };
 
@@ -80,7 +81,7 @@ const Navbar = () => {
                   </NavLink>
                   <div id="nav-impact-menu" className={`nav-impact-menu ${impactOpen ? 'open' : ''}`} role="menu">
                     <button role="menuitem" className="menu-item" onClick={() => { handleImpactSelect('un'); setImpactOpen(false); }}>United Nations</button>
-                    <button role="menuitem" className="menu-item" onClick={() => { handleImpactSelect('club'); setImpactOpen(false); }}>Enginuity Club</button>
+                    <button role="menuitem" className="menu-item" onClick={() => { handleImpactSelect('research'); setImpactOpen(false); }}>Enginuity Club</button>
                     <button role="menuitem" className="menu-item" onClick={() => { handleImpactSelect('join'); setImpactOpen(false); }}>Join</button>
                   </div>
                 </li>
