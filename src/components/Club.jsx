@@ -10,16 +10,10 @@ import club2 from '../../images/club2.png';
 import apexwork from '../../images/apexwork.png';
 import apexspace from '../../images/apexspace.jpg';
 import apexproject from '../../images/apexproject.jpg';
-import apexlaunch from '../../images/apexlaunch.mp4';
-import larryun from '../../images/larryun.mp4';
+// Use CDN URLs for videos
+const apexlaunchSrc = 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/b0c4dd9cb1113b352efe4ac771cca46a21c563ce_apexlaunch.mp4';
+const larryunSrc = 'https://files.catbox.moe/d2woa3.mp4';
 import apexweather from '../../images/apexweather.png';
-
-// In production deployments (Vercel), prefer serving videos from the `public/` root.
-// Place `apexlaunch.mp4` and `larryun.mp4` in the project's `public/` folder so
-// they're served as `/apexlaunch.mp4` and `/larryun.mp4`. During local dev we
-// continue using the imported assets so HMR still works.
-const apexlaunchSrc = (process.env.NODE_ENV === 'production') ? '/apexlaunch.mp4' : apexlaunch;
-const larryunSrc = (process.env.NODE_ENV === 'production') ? '/larryun.mp4' : larryun;
 
 const Club = () => {
   const particlesRef = useRef(null);
