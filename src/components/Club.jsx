@@ -14,6 +14,13 @@ import apexlaunch from '../../images/apexlaunch.mp4';
 import larryun from '../../images/larryun.mp4';
 import apexweather from '../../images/apexweather.png';
 
+// In production deployments (Vercel), prefer serving videos from the `public/` root.
+// Place `apexlaunch.mp4` and `larryun.mp4` in the project's `public/` folder so
+// they're served as `/apexlaunch.mp4` and `/larryun.mp4`. During local dev we
+// continue using the imported assets so HMR still works.
+const apexlaunchSrc = (process.env.NODE_ENV === 'production') ? '/apexlaunch.mp4' : apexlaunch;
+const larryunSrc = (process.env.NODE_ENV === 'production') ? '/larryun.mp4' : larryun;
+
 const Club = () => {
   const particlesRef = useRef(null);
   const [selectedSection, setSelectedSection] = useState('hero');
@@ -169,7 +176,7 @@ const Club = () => {
                 </div>
                 <div className="top-item">
                   <video controls playsInline preload="metadata" className="top-video">
-                    <source src={larryun} type="video/mp4" />
+                    <source src={larryunSrc} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </div>
@@ -278,7 +285,7 @@ const Club = () => {
               </div>
               <div className="top-item">
                 <video controls playsInline className="top-video">
-                  <source src={apexlaunch} type="video/mp4" />
+                  <source src={apexlaunchSrc} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
