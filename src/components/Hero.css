@@ -177,7 +177,8 @@
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  margin-top: -3.5rem;
+  margin-top: -1.5rem;
+
   background: linear-gradient(135deg, var(--primary) 0%, var(--gray-600) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -270,22 +271,21 @@
     display: none;
   }
 
-  .hero-grid {
-    opacity: 0.02;
+  .hero h1 {
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--gray-600) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.025em;
+    opacity: 0;
+    animation: slideUp 0.8s ease-out 0.4s forwards;
+    position: relative;
+    z-index: 1000;
   }
-
-  /* Stack columns on small screens */
-  .hero-inner {
-    flex-direction: column;
-    padding: 2rem 1rem;
-  }
-
-  .hero-content {
-    text-align: center;
-  }
-
-  /* Remove desktop nudges on small screens */
-  .hero-content,
   .hero-visual {
     transform: none;
   }
