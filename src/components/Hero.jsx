@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import './Hero.css';
 import heroImg from '../../heropic.svg';
+// import kidsImg from '../../images/kids.png';
 
 const Hero = () => {
   const particlesRef = useRef(null);
@@ -57,7 +58,6 @@ const Hero = () => {
           <h1 className="glow-text visible">Engineering <span className="underline"> Dreams</span></h1>
           <p className="hero-subtitle">
             Join Enginuity, the organization for future engineers and innovators. Recieve funding for real-world projects, learn hands-on skills, and collaborate with a passionate STEM community.
-    
           </p>
           <div className="hero-cta">
             <a href="/tinko" className="btn btn-primary">Start Engineering</a>
@@ -65,7 +65,7 @@ const Hero = () => {
           </div>
         </div>
 
-  {/* hero visual removed — center content only */}
+  {/* hero visual slot intentionally left empty for now */}
       </div>
     </section>
   );

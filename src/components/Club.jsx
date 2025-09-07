@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import SEO from './SEO';
 import './Club.css';
 import clubPic from '../../clubpic.svg';
+import kidsImg from '../../images/kids.png';
 import eyfun from '../../images/eyfun.png';
 import hlpfun from '../../images/hlpfun.JPG';
 import anvayspeakingun from '../../images/anvayspeakingun.JPG';
@@ -78,8 +79,58 @@ const Club = () => {
 
   return (
     <div className="club-page">
+          {/*
+            NOTE: The style block below contains the specific fixes for the layout issue.
+            Ideally, these styles would go into your 'Club.css' file, but they are
+            included here for a self-contained solution.
+          */}
+          <style>
+            {`
+              .club-steps-four {
+                display: flex;
+                flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+                gap: 1.5rem; /* Creates space between the boxes */
+                align-items: stretch; /* Ensures all boxes have the same height */
+              }
+
+              .club-steps-four .club-step {
+                flex: 1; /* Allows each box to grow and take up equal space */
+                min-width: 200px; /* Prevents boxes from becoming too narrow */
+                display: flex; /* Use flex for consistent internal alignment */
+                flex-direction: column;
+              }
+
+              /* Specific styles for the first box containing the image */
+              .club-step-img {
+                padding: 0; /* Remove padding to let the image fill the box */
+                border: 3px solid #3b82f6; /* Added the minor blue border */
+                position: relative; /* Required to position the text over the image */
+                overflow: hidden; /* Hides any part of the image that goes outside the border */
+              }
+
+              /* Styles for the image itself */
+              .club-step-img .club-step-img-pic {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; /* Makes the image cover the entire box without losing its aspect ratio */
+              }
+
+              /* Styles for the text overlay on the image */
+              .club-step-img .club-step-text {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.5); /* Adds a semi-transparent background for readability */
+                color: white;
+                padding: 0.5rem;
+                box-sizing: border-box; /* Ensures padding doesn't affect the width */
+                text-align: center;
+              }
+            `}
+          </style>
           <SEO
-            title="Impact — Enginuity STEM"
+              title="Enginuity Impact"
             description="Enginuity impact: student-led chapters, projects, and measurable outcomes from hands-on STEM learning."
             path="/impact"
           />
@@ -88,10 +139,12 @@ const Club = () => {
         {/* Added noise overlay for texture */}
         <div className="noise-overlay"></div>
         <div className="club-orbs">
-          <div className="orb orb-1"></div>
-          <div className="orb orb-2"></div>
-          <div className="orb orb-3"></div>
-          <div className="orb orb-4"></div>
+          <>
+            <div className="orb orb-1"></div>
+            <div className="orb orb-2"></div>
+            <div className="orb orb-3"></div>
+            <div className="orb orb-4"></div>
+          </>
         </div>
         <div className="club-grid-pattern"></div>
         <div className="club-particles" ref={particlesRef}></div>
@@ -132,8 +185,7 @@ const Club = () => {
                 </span>
               </h1>
               <p className="hero-lead">
-                Stories from student chapters and community projects — how hands-on STEM makes measurable change in classrooms and neighborhoods.
-              </p>
+Whether it's empowering students in underserved communities or advocating at the United Nations, we show how hands-on STEM can be implemented worldwide.</p>
               <div className="hero-actions">
                 <a href="/tinko" className="btn primary">Get Started</a>
                 <a href="/contact" className="btn ghost">Contact Us</a>
@@ -144,9 +196,7 @@ const Club = () => {
             <div className="hero-media">
               <div className="hero-photo-card">
                 <div className="card-glare"></div>
-                <div className="hero-photo-placeholder" aria-hidden>
-                  <em>*picture incoming after UN speech sept. 25th*</em>
-                </div>
+                <img src={kidsImg} alt="Enginuity kids" className="hero-photo-img" />
               </div>
             </div>
           </div>
@@ -156,9 +206,9 @@ const Club = () => {
   <section id="un" className="club-un-section">
         <div className="container">
           <div className="section-header">
-            <div className="section-bubble">UN Initiative</div>
+            <div className="section-bubble">Policy Work</div>
             <h2 className="section-title">United Nations Initiative</h2>
-            <p className="section-description">LARRY IRGVING AND VINT CERF AHAHHAHAH GET THAT PICo advance specific Sustainable Development Goals through student-led engineering projects, policy-aligned pilots, and capacity building.</p>
+            <p className="section-description">Learn how we establish connections at the UN, including Larry Irving and Vint Cerf.</p>
           </div>
 
           {/* What we do at the UN + tall featured image box (left + right portraits, center text) */}
@@ -175,7 +225,7 @@ const Club = () => {
                   </video>
                 </div>
                 <div className="top-item">
-                  <div className="top-video-placeholder"><em>coming soon</em></div>
+                  <div className="top-video-placeholder"><em>coming soon after sept. 25 panelist role</em></div>
                 </div>
               </div>
 
@@ -186,17 +236,17 @@ const Club = () => {
                 <div className="gallery-copy">
                 <div className="gallery-copy-inner">
                   <h3 className="gallery-title">Successfully Proving Youth Impact</h3>
-                  <p className="gallery-lead">Through UN partnership pilots we support curriculum, field deployments, and open evaluation so student work leads to measurable learning and community outcomes.</p>
+                  <p className="gallery-lead">Enginuity brings its mission to the UN not only to advocate for STEM education globally, but also to challenge ageism. Through the DTC, the UN’s first teen-led board, we prove that youth under 18 must have a voice in policy, as they are the future agents of change.<br />View the 2025 UN events we spoke at:</p>
 
                   <ul className="gallery-points" aria-hidden>
-                    <li><strong>Curriculum pilots</strong> — field-tested modules aligned to SDG priorities.</li>
-                    <li><strong>Community deployments</strong> — student-built prototypes used in real settings.</li>
-                    <li><strong>Evidence & scale</strong> — open evaluation data used to iterate and expand.</li>
+                    <li><strong>ECOSOC Youth Forum: </strong>April 15th to 17th</li>
+                    <li><strong>High-Level Political Forum: </strong>July 14th to July 23rd</li>
+                    <li><strong>International Youth Conference: </strong> September 24th to 27th</li>
                   </ul>
 
                   <div className="gallery-cta">
-                    <a href="/contact" className="btn primary small">Partner with us</a>
-                    <a href="#research" className="btn ghost small">See research</a>
+                    <a href="/contact" className="btn btn-purple-outline small">Partner With Us</a>
+                    <a href="#research" className="btn btn-purple-outline small">View Our Club</a>
                   </div>
                 </div>
                 </div>
@@ -215,8 +265,8 @@ const Club = () => {
                     <text x="32" y="38" textAnchor="middle" fontSize="20" fill="#fff" fontWeight="700">4</text>
                   </svg>
                 </div>
-                <h3>SDG 4 — Quality Education</h3>
-                <p>We design classroom-ready STEM modules that improve learning outcomes and measurement frameworks for student assessment.</p>
+                <h3>SDG 4: Quality Education</h3>
+                <p>We design classroom-ready STEM kits and modules to improve learning for all skill levels, with our proprietary dashboard.</p>
               </div>
 
               <div className="sdg-card glass" aria-hidden>
@@ -226,8 +276,8 @@ const Club = () => {
                     <text x="32" y="38" textAnchor="middle" fontSize="20" fill="#fff" fontWeight="700">10</text>
                   </svg>
                 </div>
-                <h3>SDG 10 — Reduced Inequalities</h3>
-                <p>Projects and outreach that lower barriers to STEM for underrepresented groups, with mentorship and subsidized kits.</p>
+                <h3>SDG 10: Reduced Inequalities</h3>
+                <p>We directly bridge the digital divide by providing equal opportunities to locations excluded by the government.</p>
               </div>
 
               <div className="sdg-card glass" aria-hidden>
@@ -237,8 +287,8 @@ const Club = () => {
                     <text x="32" y="38" textAnchor="middle" fontSize="18" fill="#fff" fontWeight="700">17</text>
                   </svg>
                 </div>
-                <h3>SDG 17 — Partnerships</h3>
-                <p>We forge partnerships across schools, NGOs and municipal bodies to scale student innovations toward community impact.</p>
+                <h3>SDG 17: Partnerships</h3>
+                <p>We establish partnerships across schools, NGOs, and municipal bodies to scale impact toward global communities.</p>
               </div>
             </div>
           </div>
@@ -249,25 +299,40 @@ const Club = () => {
   <section id="research" className="club-research-section">
         <div className="container">
           <div className="section-header">
-            <div className="section-bubble">Club</div>
+            <div className="section-bubble">Worldwide Chapters</div>
             <h2 className="section-title">Enginuity Club</h2>
-            <p className="section-description">A compact overview of our club — what we do, how we run chapters, and quick links to join.</p>
+
+            <p className="section-description">An overview of our club: what we do, how we run chapters, and how to join.</p>
           </div>
 
-          {/* Small club intro box (image + key info) */}
-          <div className="club-box">
-            <div className="club-box-media">
-              <img src={club2} alt="Enginuity club" />
-            </div>
-            <div className="club-box-copy">
-              <h3 className="club-box-title">Student chapters & local impact</h3>
-              <p className="club-box-lead">Enginuity chapters run regular build nights, mentor projects, and connect students with curriculum and kits.</p>
-              <ul className="club-keypoints">
-                <li>Weekly hands-on sessions</li>
-                <li>Mentor-led project tracks</li>
-                <li>Free/subsidized starter kits</li>
-              </ul>
-              <div className="club-box-cta"><a className="btn primary small" href="/contact">Start a chapter</a></div>
+          {/* Glassmorphism 4-box section: Student chapters & local impact */}
+          <div className="club-glassmorph-section">
+            <h3 className="club-glassmorph-title">Six Enginuity Chapters Around the U.S.</h3>
+            <div className="glass-row">
+              <div className="glass-box glass-img-box">
+                <img src={club2} alt="Enginuity club" className="glass-img" />
+              </div>
+              <div className="glass-box">
+                <div className="glass-num-wrap">
+                  <div className="glass-num-bg"></div>
+                  <div className="glass-num">1</div>
+                </div>
+                <div className="glass-text">Weekly STEM meetings from Arduino to Physics</div>
+              </div>
+              <div className="glass-box">
+                <div className="glass-num-wrap">
+                  <div className="glass-num-bg"></div>
+                  <div className="glass-num">2</div>
+                </div>
+                    <div className="glass-text">Opportunities to apply skills learned to impacting others</div>
+              </div>
+              <div className="glass-box">
+                <div className="glass-num-wrap">
+                  <div className="glass-num-bg"></div>
+                  <div className="glass-num">3</div>
+                </div>
+                <div className="glass-text">Free kits, premium software, and grant opportunites</div>
+              </div>
             </div>
           </div>
 
@@ -294,18 +359,16 @@ const Club = () => {
               </div>
               <div className="gallery-copy">
                 <div className="gallery-copy-inner">
-                  <h3 className="gallery-title">Apex: Launches, Field Work, & Space Data</h3>
-                  <p className="gallery-lead">Apex brings launch telemetry, field sensors, and space-enabled analysis together — student teams design, deploy, and analyze real systems.</p>
-
+                  <h3 className="gallery-title">STEM Research Projects</h3>
+                  <p className="gallery-lead">Take a look at Orionis: Enginuity's research subcommitte developing a $1000 high-altitude balloon research project with Hack Club, travelling up to 100,000 feet into the stratosphere.</p>
                   <ul className="gallery-points" aria-hidden>
-                    <li><strong>Launch telemetry</strong> — telemetry capture and analysis from suborbital tests.</li>
-                    <li><strong>Field sensing</strong> — distributed weather & environmental sensors.</li>
-                    <li><strong>Space data</strong> — satellite/telemetry integrations for classroom projects.</li>
+                    <li><strong>Atmospheric Spectroscopy: </strong>Spectrometer with diffraction lens classifies atmospheric elements using a proprietary CNN.</li>
+                    <li><strong>UV & Radiation Profiling: </strong>Custom muon watch and UV sensors measure radiation and ultraviolet light in the atmosphere.</li>
+                    <li><strong>Environmental Sensing: </strong> — Pressure, temperature, humidity, and light sensors log data to serve as a control factor.</li>
                   </ul>
 
                   <div className="gallery-cta">
-                    <a href="/contact" className="btn primary small">Collaborate on Apex</a>
-                    <a href="#join" className="btn ghost small">Start a project</a>
+                    <a href="/contact" className="btn btn-purple-outline small">Partner With Us</a>
                   </div>
                 </div>
               </div>
@@ -323,10 +386,10 @@ const Club = () => {
         <div className="container">
           <div className="cta-card">
             <div className="cta-glow"></div>
-            <h3 className="cta-title">Ready to start a chapter?</h3>
-            <p className="cta-description">Apply for mentorship and starter kits — we'll help you plan your first term of projects.</p>
+            <h3 className="cta-title">Collaborate with Enginuity</h3>
+            <p className="cta-description">Fill out the form linked below and we'll help you in whatever way we can.</p>
             <div className="apply-wrap">
-              <a href="/contact" className="btn primary">Apply Now</a>
+              <a href="https://forms.gle/4Y5W8HNDFPECsaeD8" className="btn primary" target="_blank" rel="noopener noreferrer">Apply Now</a>
             </div>
           </div>
         </div>

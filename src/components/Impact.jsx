@@ -1,4 +1,5 @@
 import React from 'react';
+import kidsImg from '../../images/kids.png';
 import SEO from './SEO';
 import './Impact.css';
 
@@ -19,7 +20,7 @@ const Impact = () => {
   return (
     <>
       <SEO
-        title="Impact — Enginuity STEM"
+        title="Enginuity Impact"
         description="Enginuity STEM impact: community stories, student outcomes, and measurable project results."
         path="/impact"
         keywords={["enginuity", "impact", "community", "stem"]}
@@ -28,13 +29,18 @@ const Impact = () => {
   <main className="impact-page club-page">
         <header className="impact-hero">
           <div className="hero-content container">
-    <h1 className="hero-title gradient-text">Engineering futures. Measuring impact.</h1>
+            <h1 className="hero-title gradient-text">Engineering futures. Measuring impact.</h1>
             <p className="hero-sub">Real projects. Real learners. Real change — powered by hands-on STEM learning.</p>
 
             <div className="hero-cta">
               <a className="btn primary" href="#projects">See projects</a>
               <a className="btn ghost" href="#get-involved">Get involved</a>
             </div>
+          </div>
+
+          {/* hero visual: show kids.png */}
+          <div className="impact-hero-photo">
+            <img src={kidsImg} alt="Enginuity kids" className="impact-photo-img" />
           </div>
 
           {/* decorative animated background blobs and grid */}

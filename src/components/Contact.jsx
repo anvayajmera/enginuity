@@ -1,15 +1,9 @@
+import SEO from './SEO';
 import { useState, useRef, useEffect } from 'react';
 import useIntersectionObserver from '../hooks/useIntersectionObserver';
 import './Contact.css';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   
   const [headerRef, headerVisible] = useIntersectionObserver();
@@ -35,29 +29,12 @@ const Contact = () => {
     createParticleSystem();
   }, []);
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    
-    setTimeout(() => setIsSuccess(false), 5000);
-  };
 
   return (
-    <section id="contact" className="contact-section">
+    <>
+      <SEO title="Enginuity Contact" description="Contact Enginuity: reach out for partnerships, questions, or to join our STEM community." path="/contact" />
+      <section id="contact" className="contact-section">
             <div className="contact-background">
         <div className="contact-grid"></div>
         <div className="floating-contact-elements">
@@ -78,7 +55,7 @@ const Contact = () => {
           className={`section-header fade-in reveal-left swoop ${headerVisible ? 'visible' : ''}`}
         >
           <div className="section-badge">Get In Touch</div>
-          <h2 className="section-title">Let's Build Something Amazing Together</h2>
+          <h2 className="section-title">Let's Do Something Amazing Together</h2>
           <p className="section-description">
             Ready to join our community or have questions? We'd love to hear from you.
             Send us a message and let's start the conversation.
@@ -114,7 +91,8 @@ const Contact = () => {
             </div>
           </div>
 
-          <form className="contact-form" onSubmit={handleSubmit}>
+          <form className="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="01202b92-e165-4ba1-828e-9bfc213b1adf" />
             <div className="form-glass">
               <div className="form-glow"></div>
               
@@ -132,21 +110,16 @@ const Contact = () => {
                   <input
                     type="text"
                     name="name"
-                    value={formData.name}
-                    onChange={handleChange}
                     required
                     placeholder=" "
                   />
                   <label>Full Name</label>
                   <div className="form-line"></div>
                 </div>
-                
                 <div className="form-group">
                   <input
                     type="email"
                     name="email"
-                    value={formData.email}
-                    onChange={handleChange}
                     required
                     placeholder=" "
                   />
@@ -154,25 +127,19 @@ const Contact = () => {
                   <div className="form-line"></div>
                 </div>
               </div>
-
               <div className="form-group">
                 <input
                   type="text"
                   name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
                   required
                   placeholder=" "
                 />
                 <label>Subject</label>
                 <div className="form-line"></div>
               </div>
-
               <div className="form-group">
                 <textarea
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
                   required
                   placeholder=" "
                   rows="6"
@@ -180,23 +147,21 @@ const Contact = () => {
                 <label>Message</label>
                 <div className="form-line"></div>
               </div>
-
               <button 
                 type="submit" 
-                className={`submit-btn ${isSubmitting ? 'submitting' : ''}`}
-                disabled={isSubmitting}
+                className="submit-btn"
               >
-                <span className="btn-text">
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                </span>
+                <span className="btn-text">Send Message</span>
                 <div className="btn-ripple"></div>
                 <div className="btn-glow"></div>
               </button>
             </div>
           </form>
         </div>
+
       </div>
     </section>
+    </>
   );
 };
 

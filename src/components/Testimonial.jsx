@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import picture2 from '../../images/picture2.png';
 import './Testimonial.css';
 
-const Testimonial = ({ imageSrc = picture2, quote = "Learning by doing changed my life — Enginuity made complex ideas feel tangible and fun.", author = 'Anvay Ajmera', role = 'Founder / Mentor' }) => {
+const Testimonial = ({ imageSrc = picture2, quote = "I know how life-changing it feels to actually build something yourself. Enginuity gives that same spark of discovery to students globally.", author = 'Anvay Ajmera', role = 'Founder / Mentor' }) => {
   const particleRef = useRef(null);
 
   useEffect(() => {

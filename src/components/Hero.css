@@ -112,7 +112,7 @@
 }
 
 .hero-content {
-  max-width: 900px;
+  width: 100%;
   z-index: 10;
   position: relative;
 }
@@ -130,16 +130,15 @@
 }
 
 .hero-content {
-  flex: 1 1 520px;
   text-align: center; /* center content horizontally */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Nudge the content slightly more to the right, and the visual slightly more to the left */
+/* Remove any nudges or transforms to keep content centered */
 .hero-content {
-  transform: none;
+  transform: none !important;
 }
 
 /* hero visual removed — center content by default */
@@ -178,6 +177,7 @@
   line-height: 1.1;
   margin-bottom: 1.5rem;
   margin-top: -1.5rem;
+  padding-bottom: 10px;
 
   background: linear-gradient(135deg, var(--primary) 0%, var(--gray-600) 100%);
   -webkit-background-clip: text;

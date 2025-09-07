@@ -9,12 +9,12 @@ function jsonLd(data) {
 
 
 export default function SEO({ title, description, path = '/', keywords = [], image }) {
-  const cleanTitle = title ? `${title} — Enginuity STEM` : 'Enginuity STEM';
+  const cleanTitle = title || '';
   const url = SITE_URL + path;
   const ogImage = image || DEFAULT_IMAGE;
 
   // include common search terms and owner name as fallback keywords
-  const defaultKeywords = ['Enginuity', 'Enginuity STEM', 'Enginuity nonprofit', 'Anvay Ajmera', 'STEM education', 'student chapters'];
+  const defaultKeywords = ['Enginuity', 'Enginuity nonprofit', 'Anvay Ajmera', 'STEM education', 'student chapters'];
   const keywordList = Array.from(new Set([...defaultKeywords, ...keywords]));
 
   const ld = {
@@ -24,14 +24,14 @@ export default function SEO({ title, description, path = '/', keywords = [], ima
         '@type': 'WebSite',
         '@id': SITE_URL + '#website',
         'url': SITE_URL,
-        'name': 'Enginuity STEM',
+  'name': 'Enginuity',
         'description': 'Enginuity — student-led STEM chapters, projects, and open education resources.',
         'publisher': { '@id': SITE_URL + '#org' }
       },
       {
         '@type': 'Organization',
         '@id': SITE_URL + '#org',
-        'name': 'Enginuity STEM',
+  'name': 'Enginuity',
         'url': SITE_URL,
         'logo': DEFAULT_IMAGE,
         'sameAs': []
@@ -58,7 +58,7 @@ export default function SEO({ title, description, path = '/', keywords = [], ima
 
       {/* Open Graph */}
 
-  <meta property="og:site_name" content="Enginuity STEM" />
+  <meta property="og:site_name" content="Enginuity" />
   <meta property="og:title" content={cleanTitle} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
