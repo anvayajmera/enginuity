@@ -6,12 +6,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.enginuitystem.com/unwork</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.enginuitystem.com/club</loc>
+    <loc>https://www.enginuitystem.com/about</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
