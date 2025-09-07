@@ -47,7 +47,7 @@
 .testimonial-grid { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.09; background-image: linear-gradient(rgba(255,255,255,0.22) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.22) 1px, transparent 1px); background-size: 56px 56px; animation: grid-move 30s linear infinite; z-index: 2; pointer-events: none; }
 
 /* Bigger, less translucent glass card (more white) and centered */
-.testimonial-card { display: flex; gap: 36px; align-items: center; padding: 48px; border-radius: 22px; background: rgba(255,255,255,0.24); backdrop-filter: blur(14px) saturate(150%); -webkit-backdrop-filter: blur(14px) saturate(150%); border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 26px 80px rgba(2,6,23,0.32); max-width: 1180px; margin: 0 auto; transform: translateY(-48px); }
+.testimonial-card { display: flex; gap: 36px; align-items: center; padding: 48px; border-radius: 22px; background: rgba(255,255,255,0.24); backdrop-filter: blur(14px) saturate(150%); -webkit-backdrop-filter: blur(14px) saturate(150%); border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 26px 80px rgba(2,6,23,0.32); max-width: 1180px; margin: 0 auto; transform: translateY(0); margin-top: 40px; }
 .testimonial-card .avatar-wrap { flex: 0 0 160px; display: flex; align-items: center; justify-content: center; }
 .avatar-img { width: 150px; height: 150px; object-fit: cover; border-radius: 18px; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 16px 48px rgba(2,6,23,0.32); }
 

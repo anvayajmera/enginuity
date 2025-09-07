@@ -455,7 +455,7 @@
   border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
-.apply-wrap { margin-top: 1.25rem; display:flex; justify-content:flex-start; }
+.apply-wrap { margin-top: 1.25rem; display:flex; justify-content:center; }
 
 .cta-glow {
   background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 50%);
