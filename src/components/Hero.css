@@ -184,6 +184,8 @@
   letter-spacing: -0.025em;
   opacity: 0;
   animation: slideUp 0.8s ease-out 0.4s forwards;
+  position: relative;
+  z-index: 1000;
 }
 
 .hero h1 .underline {

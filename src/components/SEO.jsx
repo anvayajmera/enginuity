@@ -7,9 +7,11 @@ function jsonLd(data) {
   return JSON.stringify(data);
 }
 
-export default function SEO({ title, description, path = '/', keywords = [] }) {
+
+export default function SEO({ title, description, path = '/', keywords = [], image }) {
   const cleanTitle = title ? `${title} — Enginuity STEM` : 'Enginuity STEM';
   const url = SITE_URL + path;
+  const ogImage = image || DEFAULT_IMAGE;
 
   // include common search terms and owner name as fallback keywords
   const defaultKeywords = ['Enginuity', 'Enginuity STEM', 'Enginuity nonprofit', 'Anvay Ajmera', 'STEM education', 'student chapters'];
@@ -49,23 +51,29 @@ export default function SEO({ title, description, path = '/', keywords = [] }) {
       <title>{cleanTitle}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywordList.join(', ')} />
-      <meta name="author" content="Anvay Ajmera" />
-      <meta name="robots" content="index, follow" />
-      <link rel="canonical" href={url} />
+
+  <meta name="author" content="Anvay Ajmera" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={url} />
 
       {/* Open Graph */}
-      <meta property="og:site_name" content="Enginuity STEM" />
-      <meta property="og:title" content={cleanTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={url} />
-      <meta property="og:image" content={DEFAULT_IMAGE} />
+
+  <meta property="og:site_name" content="Enginuity STEM" />
+  <meta property="og:title" content={cleanTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={url} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:locale" content="en_US" />
 
       {/* Twitter */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={cleanTitle} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={DEFAULT_IMAGE} />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={cleanTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+  <meta name="twitter:site" content="@enginuitystem" />
+  <meta name="twitter:creator" content="@anvayajmera" />
 
       <script type="application/ld+json">{jsonLd(ld)}</script>
     </>

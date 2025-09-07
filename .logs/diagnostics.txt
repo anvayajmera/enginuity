@@ -1,0 +1,47 @@
+--- GIT STATUS ---
+## main...origin/main
+ M src/components/Club.css
+?? .logs/
+
+--- MODIFIED FILES ---
+src/components/Club.css
+
+--- ESLINT (lint) ---
+(node:26516) ESLintIgnoreWarning: The ".eslintignore" file is no longer supported. Switch to using the "ignores" property in "eslint.config.js": https://eslint.org/docs/latest/use/configure/migration-guide#ignoring-files
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+/Users/Anvay/Desktop/Current Projects/Enginuity/src/components/Club.jsx
+   5:8   error  'clubPic' is defined but never used. Allowed unused vars must match /^[A-Z_]/u               no-unused-vars
+  20:9   error  'sectionsRef' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  62:59  error  'e' is defined but never used                                                                no-unused-vars
+  62:62  error  Empty block statement                                                                        no-empty
+
+/Users/Anvay/Desktop/Current Projects/Enginuity/src/components/Stats.jsx
+  151:6  warning  React Hook useEffect has a missing dependency: 'stats'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/Users/Anvay/Desktop/Current Projects/Enginuity/src/hooks/useIntersectionObserver.js
+  31:32  warning  The ref value 'ref.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'ref.current' to a variable inside the effect, and use that variable in the cleanup function  react-hooks/exhaustive-deps
+  34:6   warning  React Hook useEffect has a missing dependency: 'defaultOptions'. Either include it or remove the dependency array                                                                                                                                      react-hooks/exhaustive-deps
+
+✖ 7 problems (4 errors, 3 warnings)
+
+
+--- BUILD (vite build) ---
+favicon copied to /Users/Anvay/Desktop/Current Projects/Enginuity/public/favicon.png
+vite v7.0.6 building for production...
+transforming...
+✓ 46 modules transformed.
+✗ Build failed in 368ms
+error during build:
+[vite:css] [postcss] /Users/Anvay/Desktop/Current Projects/Enginuity/src/components/Club.css:489:1: Unclosed comment
+file: /Users/Anvay/Desktop/Current Projects/Enginuity/src/components/Club.css:489:0
+    at Input.error (/Users/Anvay/Desktop/Current Projects/Enginuity/node_modules/postcss/lib/input.js:135:16)
+    at unclosed (/Users/Anvay/Desktop/Current Projects/Enginuity/node_modules/postcss/lib/tokenize.js:45:17)
+    at Object.nextToken (/Users/Anvay/Desktop/Current Projects/Enginuity/node_modules/postcss/lib/tokenize.js:228:15)
+    at Parser.parse (/Users/Anvay/Desktop/Current Projects/Enginuity/node_modules/postcss/lib/parser.js:444:30)
+    at parse (/Users/Anvay/Desktop/Current Projects/Enginuity/node_modules/postcss/lib/parse.js:11:12)
+    at new LazyResult (/Users/Anvay/Desktop/Current Projects/Enginuity/node_modules/postcss/lib/lazy-result.js:165:16)
+    at Processor.process (/Users/Anvay/Desktop/Current Projects/Enginuity/node_modules/postcss/lib/processor.js:53:14)
+    at runPostCSS (file:///Users/Anvay/Desktop/Current%20Projects/Enginuity/node_modules/vite/dist/node/chunks/dep-BHkUv4Z8.js:32399:52)
+    at async compilePostCSS (file:///Users/Anvay/Desktop/Current%20Projects/Enginuity/node_modules/vite/dist/node/chunks/dep-BHkUv4Z8.js:32379:17)
+    at async compileCSS (file:///Users/Anvay/Desktop/Current%20Projects/Enginuity/node_modules/vite/dist/node/chunks/dep-BHkUv4Z8.js:32310:26)

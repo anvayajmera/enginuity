@@ -8,12 +8,11 @@ const __dirname = path.dirname(__filename);
 // Edit this list to include all routes you want indexed
 const routes = [
   '/',
+  '/about',
+  '/club',
   '/impact',
   '/tinko',
-  '/about',
-  '/tutorials',
-  '/contact',
-  '/features'
+  '/contact'
 ];
 
 // Default to production site; allow override via SITE_URL
