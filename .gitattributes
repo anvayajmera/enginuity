@@ -1,3 +1,4 @@
 images/*.mp4 filter=lfs diff=lfs merge=lfs -text
 images/larryun.mp4 filter=lfs diff=lfs merge=lfs -text
 public/*.mp4 filter=lfs diff=lfs merge=lfs -text
+public/*.mp4 filter=lfs diff=lfs merge=lfs -text
