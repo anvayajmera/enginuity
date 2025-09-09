@@ -12,9 +12,7 @@ import Contact from './components/Contact';
 import SEO from './components/SEO';
 import './App.css';
 
-// Club component is provided by `src/components/Club` and imported above.
 
-// Research page removed; replaced by Impact.
 
 const UNWork = () => (
   <>

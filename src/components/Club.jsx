@@ -78,13 +78,8 @@ const Club = () => {
   }, []);
 
   return (
-    <div className="club-page">
-          {/*
-            NOTE: The style block below contains the specific fixes for the layout issue.
-            Ideally, these styles would go into your 'Club.css' file, but they are
-            included here for a self-contained solution.
-          */}
-          <style>
+  <div className="club-page">
+      <style>
             {`
               .club-steps-four {
                 display: flex;

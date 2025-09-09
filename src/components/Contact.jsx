@@ -67,8 +67,6 @@ const Contact = () => {
           className={`contact-container fade-in reveal-right stagger-group ${formVisible ? 'visible' : ''}`}
         >
           <div className="contact-info">
-         
-         
             <div className="contact-card">
               <div className="contact-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">

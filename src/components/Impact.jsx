@@ -31,20 +31,14 @@ const Impact = () => {
           <div className="hero-content container">
             <h1 className="hero-title gradient-text">Engineering futures. Measuring impact.</h1>
             <p className="hero-sub">Real projects. Real learners. Real change — powered by hands-on STEM learning.</p>
-
             <div className="hero-cta">
               <a className="btn primary" href="#projects">See projects</a>
               <a className="btn ghost" href="#get-involved">Get involved</a>
             </div>
           </div>
-
-          {/* hero visual: show kids.png */}
           <div className="impact-hero-photo">
             <img src={kidsImg} alt="Enginuity kids" className="impact-photo-img" />
           </div>
-
-          {/* decorative animated background blobs and grid */}
-          {/* use shared club background elements so Impact matches Club theme */}
           <div className="club-background" aria-hidden>
             <div className="noise-overlay" />
             <div className="club-orbs">
@@ -64,7 +58,6 @@ const Impact = () => {
             </div>
           </div>
         </header>
-
         <section className="impact-stats container" aria-labelledby="impact-stats-title">
           <h2 id="impact-stats-title" className="section-heading">By the numbers</h2>
           <div className="stats-grid">
@@ -76,7 +69,6 @@ const Impact = () => {
             ))}
           </div>
         </section>
-
         <section id="projects" className="impact-projects container">
           <h2 className="section-heading">Project highlights</h2>
           <p className="section-lead">A selection of student projects and community partnerships that showcase learning and impact.</p>
