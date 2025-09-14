@@ -150,27 +150,4 @@
     font-size: 0.97rem;
     padding: 0 0.2rem;
   }
-
-
-.sponsor-gradient-text {
-  background: linear-gradient(90deg, #e0e7ef 10%, #60a5fa 60%, #a5b4fc 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 700;
-  filter: drop-shadow(0 1px 6px rgba(59,130,246,0.10));
-  letter-spacing: 0.03em;
-}
-
-.sponsor-caption a {
-  color: #60a5fa;
-  text-decoration: underline;
-  font-weight: 600;
-  transition: color 0.18s;
-}
-
-.sponsor-caption a:hover {
-  color: #fff;
-  text-shadow: 0 2px 8px #60a5fa;
-}
 }
