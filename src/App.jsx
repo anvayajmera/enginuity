@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import SponsorsBar from './components/SponsorsBar';
 import About from './components/About';
 import Features from './components/Features';
 import Stats from './components/Stats';
@@ -42,15 +43,16 @@ const TinkoEnginuity = () => (
 const Home = () => (
   <>
     <SEO
-    title="Enginuity: STEM For All"
+      title="Enginuity: STEM For All"
       description="Enginuity STEM: project-based tutorials, tracks, and resources to learn coding, electronics, and hands-on STEM."
       path="/"
       keywords={["enginuity", "stem tutorials", "project-based learning", "coding tutorials"]}
     />
     <Hero />
     <About />
-  <Testimonial />
+    <Testimonial />
     <Stats />
+    <SponsorsBar />
   </>
 );
 

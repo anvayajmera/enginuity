@@ -49,8 +49,8 @@ const Hero = () => {
       <div className="particles" ref={particlesRef}></div>
 
       <div className="hero-inner">
-  {/* keep heroImg imported for potential use; hidden fallback image to avoid lint unused import */}
-  <img src={heroImg} alt="" style={{ display: 'none' }} aria-hidden="true" />
+        {/* keep heroImg imported for potential use; hidden fallback image to avoid lint unused import */}
+        <img src={heroImg} alt="" style={{ display: 'none' }} aria-hidden="true" />
         <div className="hero-content">
           <div className="hero-badge">
             <span>Enginuity Cohort II (2025)</span>
@@ -64,8 +64,7 @@ const Hero = () => {
             <a href="#info" className="btn btn-secondary">Learn More</a>
           </div>
         </div>
-
-  {/* hero visual slot intentionally left empty for now */}
+        {/* hero visual slot intentionally left empty for now */}
       </div>
     </section>
   );

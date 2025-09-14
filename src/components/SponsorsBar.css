@@ -1,0 +1,162 @@
+.sponsors-bar-centered {
+  justify-content: center !important;
+  align-items: center !important;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+/* Sponsors Section - Premium Glassy Style */
+.sponsors-bar-section {
+  position: relative;
+  padding: 5.5rem 0 4.5rem 0;
+  min-height: 38vh;
+  background: linear-gradient(135deg, #0f1e3a 0%, #1e3a8a 60%, #3055cd 100%);
+  overflow: hidden;
+  border-top: 2px solid #233a6a;
+  box-shadow: 0 -2px 32px 0 rgba(30,64,175,0.10);
+  z-index: 2;
+}
+
+.sponsors-bar-bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.18;
+  z-index: 0;
+}
+.sponsors-bar-bg-orb.orb1 {
+  width: 420px; height: 420px; background: radial-gradient(circle, #60a5fa 0%, transparent 70%); top: 2%; left: 1%; }
+.sponsors-bar-bg-orb.orb2 {
+  width: 320px; height: 320px; background: radial-gradient(circle, #a5b4fc 0%, transparent 70%); top: 60%; right: 4%; }
+.sponsors-bar-bg-orb.orb3 {
+  width: 500px; height: 500px; background: radial-gradient(circle, #2563eb 0%, transparent 70%); bottom: 6%; left: 62%; }
+
+.sponsors-bar {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2.5vw;
+  width: 100%;
+  max-width: 1200px;
+  margin: -2.2rem auto 0 auto;
+  padding: 0 2vw 0 2vw;
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.sponsors-bar-centered {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.sponsor-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 210px;
+  max-width: 320px;
+  margin: 0 0.5vw 1.5rem 0.5vw;
+  text-align: center;
+  flex: 1 1 0;
+  background: rgba(255,255,255,0.13);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(30,64,175,0.10);
+  border: 1.5px solid rgba(255,255,255,0.18);
+  padding: 1.2rem 1rem 1.1rem 1rem;
+  transition: box-shadow 0.18s, transform 0.18s;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.sponsor-item:hover {
+  box-shadow: 0 16px 48px rgba(59,130,246,0.18);
+  transform: translateY(-4px) scale(1.03);
+}
+
+.sponsor-logo {
+  height: 70px;
+  width: auto;
+  filter: drop-shadow(0 2px 12px rgba(59,130,246,0.13));
+  opacity: 0.99;
+  transition: transform 0.18s, opacity 0.18s, filter 0.18s;
+  border-radius: 1.1rem;
+  background: rgba(255,255,255,0.18);
+  padding: 0.18rem 0.7rem;
+  object-fit: contain;
+  max-width: 160px;
+  margin-bottom: 0.7rem;
+}
+.sponsor-caption {
+  font-size: 0.97rem;
+  color: #eaf6ff;
+  margin-top: 0.1rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  text-shadow: 0 1px 8px rgba(30,64,175,0.13);
+  background: none;
+  border-radius: 0.5rem;
+  padding: 0 0.2rem;
+  max-width: 100%;
+  word-break: break-word;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  letter-spacing: 0.02em;
+}
+.sponsor-gradient-text {
+  background: linear-gradient(90deg, #e0e7ef 10%, #60a5fa 60%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  filter: drop-shadow(0 1px 6px rgba(59,130,246,0.10));
+  letter-spacing: 0.03em;
+}
+.sponsor-caption a {
+  color: #60a5fa;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.18s;
+}
+.sponsor-caption a:hover {
+  color: #fff;
+  text-shadow: 0 2px 8px #60a5fa;
+}
+
+@media (max-width: 900px) {
+  .sponsors-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.2rem;
+    padding: 1.5rem 1vw 1.5rem 1vw;
+  }
+  .sponsor-item {
+    min-width: 180px;
+    max-width: 340px;
+    margin-bottom: 1.5rem;
+  }
+
+
+.sponsor-gradient-text {
+  background: linear-gradient(90deg, #e0e7ef 10%, #60a5fa 60%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  filter: drop-shadow(0 1px 6px rgba(59,130,246,0.10));
+  letter-spacing: 0.03em;
+}
+
+.sponsor-caption a {
+  color: #60a5fa;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.18s;
+}
+
+.sponsor-caption a:hover {
+  color: #fff;
+  text-shadow: 0 2px 8px #60a5fa;
+}
