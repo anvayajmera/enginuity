@@ -6,7 +6,8 @@ import hlpfun from '../../images/hlpfun.JPG';
 import anvayspeakingun from '../../images/anvayspeakingun.JPG';
 import iycImg from '../../iyc.png';
 
-const unSpeechSrc = 'https://media.githubusercontent.com/media/anvayajmera/enginuity/main/public/UNspeech.mp4';
+const unSpeechPrimarySrc = '/UNspeech-web.mp4';
+const unSpeechFallbackSrc = 'https://media.githubusercontent.com/media/anvayajmera/enginuity/main/public/UNspeech.mp4';
 
 const UnitedNations = () => (
   <div className="club-page un-initiative-page">
@@ -85,7 +86,8 @@ const UnitedNations = () => (
               </div>
               <div className="top-item un-top-middle">
                 <video controls playsInline preload="metadata" className="top-video">
-                  <source src={unSpeechSrc} type="video/mp4" />
+                  <source src={unSpeechPrimarySrc} type="video/mp4" />
+                  <source src={unSpeechFallbackSrc} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>

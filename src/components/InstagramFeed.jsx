@@ -260,7 +260,7 @@ const InstagramFeed = () => {
                   ? (post.media_url || post.thumbnail_url)
                   : (post.media_url || post.thumbnail_url);
                 const proxyUrl = toGalleryProxyUrl(sourceUrl);
-                const imageUrl = sourceUrl || proxyUrl;
+                const imageUrl = proxyUrl || sourceUrl;
                 const cardClass =
                   index === 0
                     ? 'gallery-card gallery-card-feature'
@@ -279,9 +279,9 @@ const InstagramFeed = () => {
                         loading={index < 8 ? 'eager' : 'lazy'}
                         fetchPriority={index < 3 ? 'high' : 'auto'}
                         onError={(event) => {
-                          if (!proxyUrl) return;
-                          if (event.currentTarget.src === proxyUrl) return;
-                          event.currentTarget.src = proxyUrl;
+                          if (!sourceUrl) return;
+                          if (event.currentTarget.src === sourceUrl) return;
+                          event.currentTarget.src = sourceUrl;
                         }}
                       />
                       <div className="gallery-overlay">
