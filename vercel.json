@@ -1,6 +1,31 @@
 {
   "redirects": [
     {
+      "source": "/index.html",
+      "destination": "/",
+      "statusCode": 308
+    },
+    {
+      "source": "/club",
+      "destination": "/impact",
+      "statusCode": 308
+    },
+    {
+      "source": "/club/:path*",
+      "destination": "/impact/:path*",
+      "statusCode": 308
+    },
+    {
+      "source": "/unwork",
+      "destination": "/united-nations",
+      "statusCode": 308
+    },
+    {
+      "source": "/unwork/:path*",
+      "destination": "/united-nations/:path*",
+      "statusCode": 308
+    },
+    {
       "source": "\/(.*)",
       "destination": "https://www.enginuitystem.com/$1",
       "has": [
@@ -10,8 +35,8 @@
     }
   ],
   "rewrites": [
+    { "source": "/api/:path*", "destination": "/api/:path*" },
     { "source": "/:path*.:ext", "destination": "/:path*.:ext" },
     { "source": "/:path*", "destination": "/index.html" }
   ]
 }
-

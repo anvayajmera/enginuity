@@ -20,7 +20,7 @@ const Impact = () => {
   return (
     <>
       <SEO
-        title="Enginuity Impact"
+        title="Enginuity: Impact"
         description="Enginuity STEM impact: community stories, student outcomes, and measurable project results."
         path="/impact"
         keywords={["enginuity", "impact", "community", "stem"]}

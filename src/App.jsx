@@ -1,82 +1,136 @@
-import { Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import SponsorsBar from './components/SponsorsBar';
 import About from './components/About';
-import Features from './components/Features';
 import Stats from './components/Stats';
-import Testimonial from './components/Testimonial';
-import Tutorials from './components/Tutorials';
-import CTA from './components/CTA';
 import Club from './components/Club';
 import Contact from './components/Contact';
 import SEO from './components/SEO';
+import NJFblaPage from './components/NJFblaPage';
+import UnitedNations from './components/UnitedNations';
+import GalleryPage from './components/GalleryPage';
+import SiblingsKeeperPage from './components/SiblingsKeeperPage';
+import { buildGalleryFeedUrl, readGalleryCache, warmGalleryMedia, writeGalleryCache } from './utils/galleryCache';
 import './App.css';
 
-
-
-const UNWork = () => (
-  <>
-    <SEO
-      title="UN Work — Enginuity STEM"
-      description="UN Work: Enginuity STEM projects and initiatives supporting United Nations sustainable goals."
-      path="/unwork"
-      keywords={["enginuity", "UN", "sustainable development", "stem"]}
-    />
-    <div className="page-placeholder"><h2>UN Work</h2><p>Coming soon.</p></div>
-  </>
-);
-
-const TinkoEnginuity = () => (
-  <>
-    <SEO
-      title="Tinko — Enginuity STEM Tutorials"
-      description="Tinko tutorial series on Enginuity STEM: hands-on projects and step-by-step guides for learners."
-      path="/tinko"
-      keywords={["tinko", "enginuity", "tutorials", "stem"]}
-    />
-    <Tutorials />
-    <CTA />
-  </>
-);
+let hasWarmedGallery = false;
 
 const Home = () => (
   <>
     <SEO
-      title="Enginuity: STEM For All"
-      description="Enginuity STEM: project-based tutorials, tracks, and resources to learn coding, electronics, and hands-on STEM."
+      title="Enginuity: Engineering for All"
+      description="Enginuity is a global engineering-focused STEM program under Siblings Keeper, delivering custom PCB/CAD kits, hands-on learning, and UN-connected youth impact."
       path="/"
-      keywords={["enginuity", "stem tutorials", "project-based learning", "coding tutorials"]}
+      keywords={["enginuity", "engineering education", "pcb", "cad", "un youth", "siblings keeper", "stem kits"]}
     />
     <Hero />
     <About />
-    <Testimonial />
     <Stats />
-    <SponsorsBar />
   </>
 );
 
 function App() {
+  useEffect(() => {
+    if (hasWarmedGallery) return;
+    hasWarmedGallery = true;
+
+    let cancelled = false;
+    let timeoutId = null;
+    let idleId = null;
+
+    const warmGallery = async () => {
+      if (readGalleryCache()) return;
+      try {
+        const response = await fetch(buildGalleryFeedUrl());
+        if (!response.ok) return;
+        const payload = await response.json();
+        if (cancelled) return;
+        writeGalleryCache(payload);
+        warmGalleryMedia(Array.isArray(payload?.posts) ? payload.posts : []);
+      } catch {
+        // Ignore startup prefetch failures.
+      }
+    };
+
+    const scheduleWarmGallery = () => {
+      if (typeof window === 'undefined') return;
+      if ('requestIdleCallback' in window) {
+        idleId = window.requestIdleCallback(() => {
+          warmGallery();
+        }, { timeout: 1500 });
+        return;
+      }
+      timeoutId = window.setTimeout(() => {
+        warmGallery();
+      }, 350);
+    };
+
+    scheduleWarmGallery();
+
+    return () => {
+      cancelled = true;
+      if (timeoutId !== null) window.clearTimeout(timeoutId);
+      if (idleId !== null && 'cancelIdleCallback' in window) window.cancelIdleCallback(idleId);
+    };
+  }, []);
+
   return (
     <div className="app">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-  <Route path="/club" element={<Club />} />
-  {/* Serve Club component at /impact (renamed) */}
-  <Route path="/impact" element={<Club />} />
-  <Route path="/tinko" element={<TinkoEnginuity />} />
-        <Route path="/contact" element={<>
-          <SEO
-            title="Contact — Enginuity STEM"
-            description="Contact Enginuity STEM for partnerships, questions, or community involvement."
-            path="/contact"
-            keywords={["contact", "enginuity", "support"]}
+      <main className="app-main">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/about"
+            element={(
+              <>
+                <SEO
+                  title="Enginuity: About"
+                  description="Learn about Enginuity, a global engineering-focused STEM program under Siblings Keeper."
+                  path="/about"
+                  keywords={['enginuity', 'about enginuity', 'engineering stem program']}
+                />
+                <About />
+              </>
+            )}
           />
-          <Contact />
-        </>} />
-      </Routes>
+          <Route path="/impact" element={<Club />} />
+          <Route path="/club" element={<Navigate to="/impact" replace />} />
+          <Route path="/united-nations" element={<UnitedNations />} />
+          <Route path="/unwork" element={<Navigate to="/united-nations" replace />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/siblings-keeper" element={<SiblingsKeeperPage />} />
+          <Route
+            path="/njfbla"
+            element={(
+              <>
+                <SEO
+                  title="Enginuity: NJ FBLA"
+                  description="Explore Enginuity's NJ FBLA initiative, leadership resources, and student opportunities."
+                  path="/njfbla"
+                  keywords={['enginuity', 'nj fbla', 'student leadership']}
+                />
+                <NJFblaPage />
+              </>
+            )}
+          />
+          <Route
+            path="/contact"
+            element={(
+              <>
+                <SEO
+                  title="Enginuity: Contact"
+                  description="Contact Enginuity STEM for engineering program partnerships, school deployments, and youth leadership opportunities."
+                  path="/contact"
+                  keywords={['contact', 'enginuity', 'support']}
+                />
+                <Contact />
+              </>
+            )}
+          />
+        </Routes>
+      </main>
     </div>
   );
 }

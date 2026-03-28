@@ -4,3 +4,5 @@ node_modules/
 .env
 .vscode/
 .vercel
+.venv-transcribe/
+/UNspeech.mp4

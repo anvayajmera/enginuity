@@ -53,14 +53,14 @@ const Hero = () => {
         <img src={heroImg} alt="" style={{ display: 'none' }} aria-hidden="true" />
         <div className="hero-content">
           <div className="hero-badge">
-            <span>Enginuity Cohort II (2025)</span>
+            <span>Engineering Dreams</span>
           </div>
-          <h1 className="glow-text visible">Engineering <span className="underline"> Dreams</span></h1>
+          <h1 className="glow-text visible">Enginuity <span className="underline">STEM Program</span></h1>
           <p className="hero-subtitle">
-            Join Enginuity, the organization for future engineers and innovators. Recieve funding for real-world projects, learn hands-on skills, and collaborate with a passionate STEM community.
+            We&apos;re Enginuity, a global engineering-focused STEM program under Siblings Keeper. We build and ship custom kits, teach CAD and circuitry hands-on, and work with schools plus UN partners to create real opportunities for students.
           </p>
           <div className="hero-cta">
-            <a href="/tinko" className="btn btn-primary">Start Engineering</a>
+            <a href="/impact" className="btn btn-primary">Start Engineering</a>
             <a href="#info" className="btn btn-secondary">Learn More</a>
           </div>
         </div>

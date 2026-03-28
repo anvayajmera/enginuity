@@ -1,10 +1,9 @@
-import SEO from './SEO';
 import { useState, useRef, useEffect } from 'react';
 import useIntersectionObserver from '../hooks/useIntersectionObserver';
 import './Contact.css';
 
 const Contact = () => {
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [isSuccess] = useState(false);
   
   const [headerRef, headerVisible] = useIntersectionObserver();
   const [formRef, formVisible] = useIntersectionObserver();
@@ -33,7 +32,6 @@ const Contact = () => {
 
   return (
     <>
-      <SEO title="Enginuity Contact" description="Contact Enginuity: reach out for partnerships, questions, or to join our STEM community." path="/contact" />
       <section id="contact" className="contact-section">
             <div className="contact-background">
         <div className="contact-grid"></div>
@@ -57,8 +55,8 @@ const Contact = () => {
           <div className="section-badge">Get In Touch</div>
           <h2 className="section-title">Let's Do Something Amazing Together</h2>
           <p className="section-description">
-            Ready to join our community or have questions? We'd love to hear from you.
-            Send us a message and let's start the conversation.
+            Want to launch a chapter, partner with our engineering program, or support kit deployment in underserved communities?
+            Send us a message and we will connect with next steps.
           </p>
         </div>
 

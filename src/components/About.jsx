@@ -31,20 +31,20 @@ const About = () => {
   const features = [
     {
       id: '01',
-      title: 'Innovativion',
-      description: 'From curriculum to engineering kits, we believe in creating solutions that matter. Every project starts with a question: how can we make this better?',
+      title: 'Innovation',
+      description: 'From CAD and PCB design to full kit assembly, we build engineering pathways students can touch, test, and improve in real classrooms.',
       iconPath: 'M13 10V3L4 14h7v7l9-11h-7z' // Lightning bolt
     },
     {
       id: '02',
       title: 'Collaboration',
-      description: 'Great ideas emerge from great partnerships. Following SDG 17, our community connects with schools around the world to bridge the digital divide.',
+      description: 'Under Siblings Keeper, we partner with schools, NGOs, and UN networks to bring engineering access to communities that are too often left out.',
       iconPath: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z' // Users
     },
     {
       id: '03',
       title: 'Impact',
-      description: 'We don\'t just code for fun. We code for purpose. Every project of Enginuity, like Tinko, ensures all ranges of students can enter the field of STEM.',
+      description: 'We focus on build-first engineering: students design, solder, assemble, and deploy real systems, with coding used as one tool in the process.',
       iconPath: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z' // Star
     }
   ];
@@ -76,9 +76,9 @@ const About = () => {
           className={`section-header fade-in reveal-left swoop ${headerVisible ? 'visible' : ''}`}
         >
           <div className="section-badge">Our Mission</div>
-          <h2 className="section-title">Empowering Tomorrow's Innovators</h2>
+          <h2 className="section-title">Engineering Access at Global Scale</h2>
           <p className="section-description">
-            We're building an international community where thousands of young minds can connect to create, learn, and push the boundaries of technology, no matter where they're located.
+            Enginuity is a global engineering-focused STEM program under Siblings Keeper. We bring hands-on education, technology, and mentorship to communities that are too often left out.
           </p>
          
         </div>

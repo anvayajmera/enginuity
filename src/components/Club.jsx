@@ -2,24 +2,17 @@ import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import SEO from './SEO';
 import './Club.css';
-import clubPic from '../../clubpic.svg';
-import kidsImg from '../../images/kids.png';
-import eyfun from '../../images/eyfun.png';
-import hlpfun from '../../images/hlpfun.JPG';
-import anvayspeakingun from '../../images/anvayspeakingun.JPG';
+import zambiaSuccess from '../../zambiasuccess.png';
 import club2 from '../../images/club2.png';
-import apexwork from '../../images/apexwork.png';
-import apexspace from '../../images/apexspace.jpg';
-import apexproject from '../../images/apexproject.jpg';
-// Use CDN URLs for videos
-const apexlaunchSrc = 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/b0c4dd9cb1113b352efe4ac771cca46a21c563ce_apexlaunch.mp4';
-const larryunSrc = 'https://files.catbox.moe/d2woa3.mp4';
-import apexweather from '../../images/apexweather.png';
+import kits1 from '../../kits1.png';
+import kits2 from '../../kits2.png';
+import suppliesImg from '../../supplies.png';
+import bluetoothKitImg from '../../images/bluetooth kit.png';
+import anvayLatoyaImg from '../../images/anvay+latoya.png';
 
 const Club = () => {
   const particlesRef = useRef(null);
   const [selectedSection, setSelectedSection] = useState('hero');
-  const sectionsRef = useRef([]);
   const location = useLocation();
 
   useEffect(() => {
@@ -61,7 +54,7 @@ const Club = () => {
       const target = location.state.scrollTo;
       setSelectedSection(target);
       // remove state to avoid repeated scrolling on re-mounts
-      try { window.history.replaceState({}, ''); } catch (e) {}
+      try { window.history.replaceState({}, ''); } catch { /* no-op */ }
     }
   }, [location]);
 
@@ -78,7 +71,7 @@ const Club = () => {
   }, []);
 
   return (
-  <div className="club-page">
+  <div className="club-page impact-page-program">
       <style>
             {`
               .club-steps-four {
@@ -125,8 +118,8 @@ const Club = () => {
             `}
           </style>
           <SEO
-              title="Enginuity Impact"
-            description="Enginuity impact: student-led chapters, projects, and measurable outcomes from hands-on STEM learning."
+              title="Enginuity: Impact"
+            description="Enginuity impact: custom engineering kits, CAD and PCB education, global school partnerships, and youth-led engagement with UN and policy stakeholders."
             path="/impact"
           />
 
@@ -159,7 +152,7 @@ const Club = () => {
             <div className="hero-content">
               <div className="hero-badge">
                 <span className="badge-sparkle"></span>
-                Changing Youth Lives
+                Engineering in Action
               </div>
               <h1 className="hero-title title-centered">
                 <span className="hero-title-line">Local & Global</span>
@@ -180,9 +173,10 @@ const Club = () => {
                 </span>
               </h1>
               <p className="hero-lead">
-Whether it's empowering students in underserved communities or advocating at the United Nations, we show how hands-on STEM can be implemented worldwide.</p>
+                We build and ship custom engineering modules, train students in CAD and circuitry, and partner with schools and policymakers to expand hands-on STEM access worldwide.
+              </p>
               <div className="hero-actions">
-                <a href="/tinko" className="btn primary">Get Started</a>
+                <a href="#build" className="btn primary">Get Started</a>
                 <a href="/contact" className="btn ghost">Contact Us</a>
               </div>
               {/* selector removed from hero — navigation dropdown now in navbar */}
@@ -191,118 +185,63 @@ Whether it's empowering students in underserved communities or advocating at the
             <div className="hero-media">
               <div className="hero-photo-card">
                 <div className="card-glare"></div>
-                <img src={kidsImg} alt="Enginuity kids" className="hero-photo-img" />
+                <img src={zambiaSuccess} alt="Zambia classroom success with Enginuity kits" className="hero-photo-img" />
               </div>
             </div>
           </div>
         </div>
       </section>
-      {/* United Nations Initiative */}
-  <section id="un" className="club-un-section">
+      {/* Build pipeline */}
+  <section id="build" className="club-research-section">
         <div className="container">
           <div className="section-header">
-            <div className="section-bubble">Policy Work</div>
-            <h2 className="section-title">United Nations Initiative</h2>
-            <p className="section-description">Learn how we establish connections at the UN, including Larry Irving and Vint Cerf.</p>
+            <div className="section-bubble">Program Model</div>
+            <h2 className="section-title">Enginuity STEM Program</h2>
+
+            <p className="section-description">How we design engineering curriculum, deploy kits, and activate student-led chapters with measurable impact.</p>
           </div>
 
-          {/* What we do at the UN + tall featured image box (left + right portraits, center text) */}
-          <div className="un-details">
-            <div className="un-gallery-box">
-              <div className="un-gallery-top">
-                <div className="top-item">
-                  <img src={anvayspeakingun} alt="Anvay speaking at UN" />
-                </div>
-                <div className="top-item">
-                  <video controls playsInline preload="metadata" className="top-video">
-                    <source src={larryunSrc} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <div className="top-item">
-                  <div className="top-video-placeholder"><em>coming soon after sept. 25 panelist role</em></div>
-                </div>
+          <div className="un-gallery-box impact-media-gallery">
+            <div className="un-gallery-top">
+              <div className="top-item impact-top-left">
+                <img src={suppliesImg} alt="Engineering supplies organized for kit assembly" />
               </div>
+              <div className="top-item impact-top-middle">
+                <img src={bluetoothKitImg} alt="Bluetooth engineering kit modules" />
+              </div>
+              <div className="top-item impact-top-right">
+                <img src={anvayLatoyaImg} alt="Anvay and LaToya preparing kit shipment materials" />
+              </div>
+            </div>
 
-              <div className="gallery-portraits">
-                <div className="gallery-portrait left">
-                  <img src={eyfun} alt="EY Fun program portrait" />
-                </div>
-                <div className="gallery-copy">
+            <div className="gallery-portraits">
+              <div className="gallery-portrait left impact-left-portrait">
+                <img src={kits2} alt="Kits batch two packed for school delivery" />
+              </div>
+              <div className="gallery-copy">
                 <div className="gallery-copy-inner">
-                  <h3 className="gallery-title">Successfully Proving Youth Impact</h3>
-                  <p className="gallery-lead">Enginuity brings its mission to the UN not only to advocate for STEM education globally, but also to challenge ageism. Through the DTC, the UN’s first teen-led board, we prove that youth under 18 must have a voice in policy, as they are the future agents of change.<br />View the 2025 UN events we spoke at:</p>
-
+                  <h3 className="gallery-title">Built, Packed, and Shipped</h3>
+                  <p className="gallery-lead">Every module is assembled for real classrooms, checked end-to-end, and shipped so students can start building from day one.</p>
                   <ul className="gallery-points" aria-hidden>
-                    <li><strong>ECOSOC Youth Forum: </strong>April 15th to 17th</li>
-                    <li><strong>High-Level Political Forum: </strong>July 14th to July 23rd</li>
-                    <li><strong>International Youth Conference: </strong> September 24th to 27th</li>
+                    <li><strong>Design to Device: </strong>Students move from CAD and circuit plans to physical parts and working assemblies.</li>
+                    <li><strong>Hands-On Skills: </strong>Our modules cover wiring, PCB fundamentals, component testing, and troubleshooting.</li>
+                    <li><strong>Global Delivery: </strong>Each shipment is organized for partner classrooms, including schools in Zambia and beyond.</li>
                   </ul>
 
                   <div className="gallery-cta">
                     <a href="/contact" className="btn btn-purple-outline small">Partner With Us</a>
-                    <a href="#research" className="btn btn-purple-outline small">View Our Club</a>
                   </div>
                 </div>
-                </div>
-                <div className="gallery-portrait right">
-                  <img src={hlpfun} alt="HLP Fun program portrait" />
-                </div>
+              </div>
+              <div className="gallery-portrait right impact-right-portrait">
+                <img src={kits1} alt="Kits batch one ready for deployment" />
               </div>
             </div>
-
-            {/* SDG focus cards moved below the gallery */}
-            <div className="sdg-grid">
-              <div className="sdg-card glass" aria-hidden>
-                <div className="sdg-badge">
-                  <svg viewBox="0 0 64 64" aria-hidden>
-                    <circle cx="32" cy="32" r="30" fill="#e53935" />
-                    <text x="32" y="38" textAnchor="middle" fontSize="20" fill="#fff" fontWeight="700">4</text>
-                  </svg>
-                </div>
-                <h3>SDG 4: Quality Education</h3>
-                <p>We design classroom-ready STEM kits and modules to improve learning for all skill levels, with our proprietary dashboard.</p>
-              </div>
-
-              <div className="sdg-card glass" aria-hidden>
-                <div className="sdg-badge">
-                  <svg viewBox="0 0 64 64" aria-hidden>
-                    <circle cx="32" cy="32" r="30" fill="#8e44ad" />
-                    <text x="32" y="38" textAnchor="middle" fontSize="20" fill="#fff" fontWeight="700">10</text>
-                  </svg>
-                </div>
-                <h3>SDG 10: Reduced Inequalities</h3>
-                <p>We directly bridge the digital divide by providing equal opportunities to locations excluded by the government.</p>
-              </div>
-
-              <div className="sdg-card glass" aria-hidden>
-                <div className="sdg-badge">
-                  <svg viewBox="0 0 64 64" aria-hidden>
-                    <circle cx="32" cy="32" r="30" fill="#1e88e5" />
-                    <text x="32" y="38" textAnchor="middle" fontSize="18" fill="#fff" fontWeight="700">17</text>
-                  </svg>
-                </div>
-                <h3>SDG 17: Partnerships</h3>
-                <p>We establish partnerships across schools, NGOs, and municipal bodies to scale impact toward global communities.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Research projects (existing research section, retitled) */}
-  <section id="research" className="club-research-section">
-        <div className="container">
-          <div className="section-header">
-            <div className="section-bubble">Worldwide Chapters</div>
-            <h2 className="section-title">Enginuity Club</h2>
-
-            <p className="section-description">An overview of our club: what we do, how we run chapters, and how to join.</p>
           </div>
 
           {/* Glassmorphism 4-box section: Student chapters & local impact */}
           <div className="club-glassmorph-section">
-            <h3 className="club-glassmorph-title">Six Enginuity Chapters Around the U.S.</h3>
+            <h3 className="club-glassmorph-title">How Our Engineering Program Operates</h3>
             <div className="glass-row">
               <div className="glass-box glass-img-box">
                 <img src={club2} alt="Enginuity club" className="glass-img" />
@@ -312,63 +251,21 @@ Whether it's empowering students in underserved communities or advocating at the
                   <div className="glass-num-bg"></div>
                   <div className="glass-num">1</div>
                 </div>
-                <div className="glass-text">Weekly STEM meetings from Arduino to Physics</div>
+                <div className="glass-text">Hands-on modules covering CAD, PCB fundamentals, circuitry, and system-level engineering.</div>
               </div>
               <div className="glass-box">
                 <div className="glass-num-wrap">
                   <div className="glass-num-bg"></div>
                   <div className="glass-num">2</div>
                 </div>
-                    <div className="glass-text">Opportunities to apply skills learned to impacting others</div>
+                <div className="glass-text">Youth leadership opportunities in outreach, chapter operations, and real community problem-solving.</div>
               </div>
               <div className="glass-box">
                 <div className="glass-num-wrap">
                   <div className="glass-num-bg"></div>
                   <div className="glass-num">3</div>
                 </div>
-                <div className="glass-text">Free kits, premium software, and grant opportunites</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Apex feature — top row (apexwork, apexlaunch video, apexspace) and portraits (apexwweather, apexproject) */}
-          <div className="un-gallery-box apex-gallery">
-            <div className="un-gallery-top">
-              <div className="top-item">
-                <img src={apexwork} alt="Apex work" />
-              </div>
-              <div className="top-item">
-                <video controls playsInline className="top-video">
-                  <source src={apexlaunchSrc} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <div className="top-item">
-                <img src={apexspace} alt="Apex space" />
-              </div>
-            </div>
-
-            <div className="gallery-portraits">
-              <div className="gallery-portrait left">
-                <img src={apexweather} alt="Apex weather project" />
-              </div>
-              <div className="gallery-copy">
-                <div className="gallery-copy-inner">
-                  <h3 className="gallery-title">STEM Research Projects</h3>
-                  <p className="gallery-lead">Take a look at Orionis: Enginuity's research subcommitte developing a $1000 high-altitude balloon research project with Hack Club, travelling up to 100,000 feet into the stratosphere.</p>
-                  <ul className="gallery-points" aria-hidden>
-                    <li><strong>Atmospheric Spectroscopy: </strong>Spectrometer with diffraction lens classifies atmospheric elements using a proprietary CNN.</li>
-                    <li><strong>UV & Radiation Profiling: </strong>Custom muon watch and UV sensors measure radiation and ultraviolet light in the atmosphere.</li>
-                    <li><strong>Environmental Sensing: </strong> — Pressure, temperature, humidity, and light sensors log data to serve as a control factor.</li>
-                  </ul>
-
-                  <div className="gallery-cta">
-                    <a href="/contact" className="btn btn-purple-outline small">Partner With Us</a>
-                  </div>
-                </div>
-              </div>
-              <div className="gallery-portrait right">
-                <img src={apexproject} alt="Apex project portrait" />
+                <div className="glass-text">Custom kit logistics, partner support, and grant-backed resources for underserved classrooms.</div>
               </div>
             </div>
           </div>
@@ -381,10 +278,10 @@ Whether it's empowering students in underserved communities or advocating at the
         <div className="container">
           <div className="cta-card">
             <div className="cta-glow"></div>
-            <h3 className="cta-title">Collaborate with Enginuity</h3>
-            <p className="cta-description">Fill out the form linked below and we'll help you in whatever way we can.</p>
+            <h3 className="cta-title">Build With Enginuity</h3>
+            <p className="cta-description">Join as a student engineer, school partner, or supporter and help us scale hands-on engineering access across underserved communities.</p>
             <div className="apply-wrap">
-              <a href="https://forms.gle/4Y5W8HNDFPECsaeD8" className="btn primary" target="_blank" rel="noopener noreferrer">Apply Now</a>
+              <a href="/contact" className="btn primary">Contact Us</a>
             </div>
           </div>
         </div>

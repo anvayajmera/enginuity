@@ -1,0 +1,98 @@
+.gallery-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(180deg, #edf3ff 0%, #f8fbff 45%, #ffffff 100%);
+}
+
+.gallery-page-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.gallery-page-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.2;
+  will-change: transform;
+  animation: galleryOrbFloat 20s ease-in-out infinite alternate;
+}
+
+.gallery-page-orb.orb-a {
+  width: 45vw;
+  height: 45vw;
+  max-width: 650px;
+  max-height: 650px;
+  top: -12%;
+  left: -16%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.45) 0%, transparent 66%);
+}
+
+.gallery-page-orb.orb-b {
+  width: 40vw;
+  height: 40vw;
+  max-width: 560px;
+  max-height: 560px;
+  right: -10%;
+  top: 16%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%);
+  animation-delay: 5s;
+}
+
+.gallery-page-orb.orb-c {
+  width: 38vw;
+  height: 38vw;
+  max-width: 520px;
+  max-height: 520px;
+  left: 24%;
+  bottom: -16%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.36) 0%, transparent 72%);
+  animation-delay: 9s;
+}
+
+.gallery-page-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.07) 1px, transparent 1px);
+  background-size: 72px 72px;
+  animation: galleryGridPan 60s linear infinite;
+}
+
+.gallery-page .gallery-section {
+  position: relative;
+  z-index: 2;
+  padding-top: 8.75rem;
+}
+
+@keyframes galleryGridPan {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -144px -72px;
+  }
+}
+
+@keyframes galleryOrbFloat {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.95);
+  }
+  100% {
+    transform: translate3d(18px, -26px, 0) scale(1.08);
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-page .gallery-section {
+    padding-top: 7.8rem;
+  }
+
+  .gallery-page-grid {
+    background-size: 54px 54px;
+  }
+}
