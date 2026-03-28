@@ -6,7 +6,7 @@ import hlpfun from '../../images/hlpfun.JPG';
 import anvayspeakingun from '../../images/anvayspeakingun.JPG';
 import iycImg from '../../iyc.png';
 
-const unSpeechSrc = '/UNspeech.mp4';
+const unSpeechSrc = 'https://media.githubusercontent.com/media/anvayajmera/enginuity/main/public/UNspeech.mp4';
 
 const UnitedNations = () => (
   <div className="club-page un-initiative-page">

@@ -259,7 +259,8 @@ const InstagramFeed = () => {
                 const sourceUrl = post.media_type === 'VIDEO'
                   ? (post.media_url || post.thumbnail_url)
                   : (post.media_url || post.thumbnail_url);
-                const imageUrl = toGalleryProxyUrl(sourceUrl);
+                const proxyUrl = toGalleryProxyUrl(sourceUrl);
+                const imageUrl = sourceUrl || proxyUrl;
                 const cardClass =
                   index === 0
                     ? 'gallery-card gallery-card-feature'
@@ -277,6 +278,11 @@ const InstagramFeed = () => {
                         className="gallery-media"
                         loading={index < 8 ? 'eager' : 'lazy'}
                         fetchPriority={index < 3 ? 'high' : 'auto'}
+                        onError={(event) => {
+                          if (!proxyUrl) return;
+                          if (event.currentTarget.src === proxyUrl) return;
+                          event.currentTarget.src = proxyUrl;
+                        }}
                       />
                       <div className="gallery-overlay">
                         <div className="gallery-overlay-top">
