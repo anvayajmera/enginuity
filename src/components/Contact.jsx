@@ -73,7 +73,7 @@ const Contact = () => {
                 </svg>
               </div>
               <h3>Email Us</h3>
-              <p>anvayajmera9@gmail.com<br/>a.ajmera@apeers.com</p>
+              <p>info@enginuitystem.com<br/>anvayajmera@enginuitystem.com</p>
             </div>
             
             <div className="contact-card">
