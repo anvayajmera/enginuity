@@ -62,7 +62,7 @@ const CTA = () => {
           </div>
 
           <div className="cta-actions-new">
-            <a href="/apply" className="cta-primary-btn-new">
+            <a href="/contact" className="cta-primary-btn-new">
               <span>Submit Your Project</span>
               <div className="btn-glow"></div>
             </a>
@@ -76,7 +76,7 @@ const CTA = () => {
                 <span>Join Us</span>
                 <div className="link-underline"></div>
               </a>
-              <a href="/about" className="secondary-link-new">
+              <a href="/impact" className="secondary-link-new">
                 <span>Learn More</span>
                 <div className="link-underline"></div>
               </a>

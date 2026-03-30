@@ -7,12 +7,10 @@ const __dirname = path.dirname(__filename);
 
 const routes = [
   { path: '/', changefreq: 'weekly', priority: '1.0' },
-  { path: '/about', changefreq: 'monthly', priority: '0.8' },
   { path: '/impact', changefreq: 'weekly', priority: '0.9' },
   { path: '/united-nations', changefreq: 'monthly', priority: '0.8' },
   { path: '/gallery', changefreq: 'daily', priority: '0.85' },
   { path: '/siblings-keeper', changefreq: 'monthly', priority: '0.8' },
-  { path: '/njfbla', changefreq: 'monthly', priority: '0.7' },
   { path: '/contact', changefreq: 'monthly', priority: '0.8' },
 ];
 
