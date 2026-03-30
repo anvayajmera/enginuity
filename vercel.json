@@ -26,6 +26,26 @@
       "statusCode": 308
     },
     {
+      "source": "/about",
+      "destination": "/",
+      "statusCode": 308
+    },
+    {
+      "source": "/about/:path*",
+      "destination": "/",
+      "statusCode": 308
+    },
+    {
+      "source": "/njfbla",
+      "destination": "/",
+      "statusCode": 308
+    },
+    {
+      "source": "/njfbla/:path*",
+      "destination": "/",
+      "statusCode": 308
+    },
+    {
       "source": "\/(.*)",
       "destination": "https://www.enginuitystem.com/$1",
       "has": [
