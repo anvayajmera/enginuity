@@ -6,13 +6,6 @@ const baseUrl = String(rawBase).replace(/\/$/, '');
 
 const routes = [
   {
-    path: '/about',
-    file: 'about.html',
-    title: 'Enginuity: About',
-    description: 'Learn about Enginuity, a global engineering-focused STEM program under Siblings Keeper.',
-    keywords: ['enginuity', 'about enginuity', 'engineering stem program'],
-  },
-  {
     path: '/impact',
     file: 'impact.html',
     title: 'Enginuity: Impact',
@@ -46,13 +39,6 @@ const routes = [
     title: 'Enginuity: Contact',
     description: 'Contact Enginuity STEM for engineering program partnerships, school deployments, and youth leadership opportunities.',
     keywords: ['contact', 'enginuity', 'support'],
-  },
-  {
-    path: '/njfbla',
-    file: 'njfbla.html',
-    title: 'Enginuity: NJ FBLA',
-    description: 'Explore Enginuity\'s NJ FBLA initiative, leadership resources, and student opportunities.',
-    keywords: ['enginuity', 'nj fbla', 'student leadership'],
   },
 ];
 

@@ -36,13 +36,11 @@
   ],
   "rewrites": [
     { "source": "/api/:path*", "destination": "/api/:path*" },
-    { "source": "/about", "destination": "/about.html" },
     { "source": "/impact", "destination": "/impact.html" },
     { "source": "/united-nations", "destination": "/united-nations.html" },
     { "source": "/gallery", "destination": "/gallery.html" },
     { "source": "/siblings-keeper", "destination": "/siblings-keeper.html" },
     { "source": "/contact", "destination": "/contact.html" },
-    { "source": "/njfbla", "destination": "/njfbla.html" },
     { "source": "/:path*.:ext", "destination": "/:path*.:ext" },
     { "source": "/:path*", "destination": "/index.html" }
   ]

@@ -7,7 +7,6 @@ import Stats from './components/Stats';
 import Club from './components/Club';
 import Contact from './components/Contact';
 import SEO from './components/SEO';
-import NJFblaPage from './components/NJFblaPage';
 import UnitedNations from './components/UnitedNations';
 import GalleryPage from './components/GalleryPage';
 import SiblingsKeeperPage from './components/SiblingsKeeperPage';
@@ -81,40 +80,14 @@ function App() {
       <main className="app-main">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route
-            path="/about"
-            element={(
-              <>
-                <SEO
-                  title="Enginuity: About"
-                  description="Learn about Enginuity, a global engineering-focused STEM program under Siblings Keeper."
-                  path="/about"
-                  keywords={['enginuity', 'about enginuity', 'engineering stem program']}
-                />
-                <About />
-              </>
-            )}
-          />
+          <Route path="/about" element={<Navigate to="/" replace />} />
           <Route path="/impact" element={<Club />} />
           <Route path="/club" element={<Navigate to="/impact" replace />} />
           <Route path="/united-nations" element={<UnitedNations />} />
           <Route path="/unwork" element={<Navigate to="/united-nations" replace />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/siblings-keeper" element={<SiblingsKeeperPage />} />
-          <Route
-            path="/njfbla"
-            element={(
-              <>
-                <SEO
-                  title="Enginuity: NJ FBLA"
-                  description="Explore Enginuity's NJ FBLA initiative, leadership resources, and student opportunities."
-                  path="/njfbla"
-                  keywords={['enginuity', 'nj fbla', 'student leadership']}
-                />
-                <NJFblaPage />
-              </>
-            )}
-          />
+          <Route path="/njfbla" element={<Navigate to="/" replace />} />
           <Route
             path="/contact"
             element={(
