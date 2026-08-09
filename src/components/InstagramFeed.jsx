@@ -196,7 +196,7 @@ const InstagramFeed = () => {
       <div className="container">
         <div className="section-header">
           <div className="section-badge">Gallery</div>
-          <h2 className="section-title">Enginuity in Action</h2>
+          <h1 className="section-title">Enginuity in Action</h1>
           <p className="section-description">
             A live timeline from @{GALLERY_USERNAME} featuring kit builds, CAD and PCB modules, UN participation, and global partner deployments.
           </p>

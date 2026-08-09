@@ -23,7 +23,18 @@ const urls = routes.map(({ path: routePath, changefreq, priority }) => {
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>`;
 
-const outDir = path.join(__dirname, '..', 'public');
-if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
-fs.writeFileSync(path.join(outDir, 'sitemap.xml'), xml, 'utf8');
-console.log('sitemap.xml written to public/sitemap.xml');
+const outputDirs = [path.join(__dirname, '..', 'public')];
+const distDir = path.join(__dirname, '..', 'dist');
+
+// Vite copies public/ into dist/ before this script runs. Write the final
+// sitemap to both locations so the deployed output has the current file.
+if (fs.existsSync(distDir)) outputDirs.push(distDir);
+
+const outputPaths = outputDirs.map((outDir) => {
+  if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
+  const outputPath = path.join(outDir, 'sitemap.xml');
+  fs.writeFileSync(outputPath, xml, 'utf8');
+  return outputPath;
+});
+
+console.log(`sitemap.xml written to ${outputPaths.join(' and ')}`);

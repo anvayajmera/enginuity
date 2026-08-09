@@ -1,8 +1,7 @@
-import React from 'react';
+import { useEffect } from 'react';
 
 const SITE_URL = 'https://www.enginuitystem.com';
 const DEFAULT_IMAGE = `${SITE_URL}/favicon.png`;
-const PERSON_ID = `${SITE_URL}#anvay-ajmera`;
 
 const CANONICAL_PATH_ALIASES = {
   '/club': '/impact',
@@ -18,9 +17,16 @@ const NAV_PATHS = [
   { name: 'Contact', path: '/contact' },
 ];
 
-function jsonLd(data) {
-  return JSON.stringify(data);
-}
+const DEFAULT_KEYWORDS = [
+  'Enginuity',
+  'Enginuity nonprofit',
+  'Anvay Ajmera',
+  'anvay ajmera enginuity',
+  'engineering education',
+  'pcb',
+  'cad',
+  'UN youth advocacy',
+];
 
 function normalizePath(path = '/') {
   const withLeadingSlash = path.startsWith('/') ? path : `/${path}`;
@@ -35,155 +41,124 @@ function pageNameFromTitle(title = '') {
   return trimmed.split(/\s+(?:\||\u2014|-)\s+/)[0].trim() || trimmed;
 }
 
+function upsertMeta(attribute, key, content) {
+  const selector = `meta[${attribute}="${key}"]`;
+  const matches = Array.from(document.head.querySelectorAll(selector));
+  const [meta, ...duplicates] = matches;
+  const element = meta || document.createElement('meta');
+
+  if (!meta) {
+    element.setAttribute(attribute, key);
+    document.head.append(element);
+  }
+
+  duplicates.forEach((duplicate) => duplicate.remove());
+  element.setAttribute('content', content);
+}
+
+function upsertLink(rel, attributes) {
+  const matches = Array.from(document.head.querySelectorAll(`link[rel="${rel}"]`));
+  const [link, ...duplicates] = matches;
+  const element = link || document.createElement('link');
+
+  if (!link) {
+    element.setAttribute('rel', rel);
+    document.head.append(element);
+  }
+
+  duplicates.forEach((duplicate) => duplicate.remove());
+  Object.entries(attributes).forEach(([name, value]) => element.setAttribute(name, value));
+}
+
+function updateDocumentTitle(title) {
+  const titles = Array.from(document.head.querySelectorAll('title'));
+  const [titleElement, ...duplicates] = titles;
+  const element = titleElement || document.createElement('title');
+
+  if (!titleElement) document.head.prepend(element);
+  duplicates.forEach((duplicate) => duplicate.remove());
+  element.textContent = title;
+}
+
+function upsertJsonLd(id, data) {
+  const existing = document.getElementById(id);
+  const script = existing || document.createElement('script');
+
+  if (!existing) {
+    script.id = id;
+    script.type = 'application/ld+json';
+    document.head.append(script);
+  }
+
+  script.textContent = JSON.stringify(data);
+}
+
 export default function SEO({ title, description, path = '/', keywords = [], image }) {
   const cleanTitle = title || 'Enginuity';
   const normalizedPath = normalizePath(path);
   const canonicalPath = CANONICAL_PATH_ALIASES[normalizedPath] || normalizedPath;
   const url = canonicalPath === '/' ? `${SITE_URL}/` : `${SITE_URL}${canonicalPath}`;
   const ogImage = image || DEFAULT_IMAGE;
-
   const navMatch = NAV_PATHS.find((item) => item.path === canonicalPath);
   const pageName = navMatch?.name || pageNameFromTitle(cleanTitle);
+  const keywordString = Array.from(new Set([...DEFAULT_KEYWORDS, ...keywords])).join(', ');
 
-  const breadcrumbItems = [
-    {
-      '@type': 'ListItem',
-      position: 1,
-      name: 'Home',
-      item: `${SITE_URL}/`,
-    },
-  ];
+  useEffect(() => {
+    updateDocumentTitle(cleanTitle);
+    upsertMeta('name', 'description', description);
+    upsertMeta('name', 'keywords', keywordString);
+    upsertMeta('name', 'author', 'Anvay Ajmera');
+    upsertMeta('name', 'creator', 'Anvay Ajmera');
+    upsertMeta('name', 'robots', 'index, follow');
+    upsertMeta('name', 'googlebot', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
+    upsertLink('canonical', { href: url });
+    upsertLink('sitemap', { type: 'application/xml', title: 'Sitemap', href: `${SITE_URL}/sitemap.xml` });
 
-  if (canonicalPath !== '/') {
-    breadcrumbItems.push({
-      '@type': 'ListItem',
-      position: 2,
-      name: pageName,
-      item: url,
-    });
-  }
+    upsertMeta('property', 'og:site_name', 'Enginuity');
+    upsertMeta('property', 'og:title', cleanTitle);
+    upsertMeta('property', 'og:description', description);
+    upsertMeta('property', 'og:type', 'website');
+    upsertMeta('property', 'og:url', url);
+    upsertMeta('property', 'og:image', ogImage);
+    upsertMeta('property', 'og:image:alt', `${pageName} - Enginuity`);
+    upsertMeta('property', 'og:locale', 'en_US');
 
-  const webPageNode = {
-    '@type': 'WebPage',
-    '@id': `${url}#webpage`,
-    url,
-    name: cleanTitle,
-    description,
-    inLanguage: 'en-US',
-    isPartOf: { '@id': `${SITE_URL}#website` },
-    primaryImageOfPage: { '@id': `${url}#primaryimage` },
-    about: [
-      { '@id': `${SITE_URL}#org` },
-      { '@id': PERSON_ID },
-    ],
-  };
+    upsertMeta('name', 'twitter:card', 'summary_large_image');
+    upsertMeta('name', 'twitter:title', cleanTitle);
+    upsertMeta('name', 'twitter:description', description);
+    upsertMeta('name', 'twitter:image', ogImage);
+    upsertMeta('name', 'twitter:image:alt', `${pageName} - Enginuity`);
+    upsertMeta('name', 'twitter:site', '@enginuitystem');
+    upsertMeta('name', 'twitter:creator', '@anvayajmera');
 
-  if (breadcrumbItems.length > 1) {
-    webPageNode.breadcrumb = { '@id': `${url}#breadcrumb` };
-  }
-
-  const ldGraph = [
-    {
-      '@type': 'Organization',
-      '@id': `${SITE_URL}#org`,
-      name: 'Enginuity',
-      alternateName: 'Enginuity STEM Program',
-      url: SITE_URL,
-      logo: DEFAULT_IMAGE,
-      founder: { '@id': PERSON_ID },
-      sameAs: [],
-    },
-    {
-      '@type': 'Person',
-      '@id': PERSON_ID,
-      name: 'Anvay Ajmera',
-      url: SITE_URL,
-      jobTitle: 'Founder, Enginuity STEM Program',
-      worksFor: { '@id': `${SITE_URL}#org` },
-      affiliation: { '@id': `${SITE_URL}#org` },
-      sameAs: [],
-    },
-    {
-      '@type': 'WebSite',
-      '@id': `${SITE_URL}#website`,
-      url: SITE_URL,
-      name: 'Enginuity STEM',
-      description: 'Global engineering-focused STEM program under Siblings Keeper.',
+    const pageSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      '@id': `${url}#webpage`,
+      url,
+      name: cleanTitle,
+      description,
       inLanguage: 'en-US',
-      publisher: { '@id': `${SITE_URL}#org` },
-      hasPart: NAV_PATHS.map((item) => ({
-        '@id': `${SITE_URL}${item.path === '/' ? '/' : item.path}#webpage`,
-      })),
-    },
-    webPageNode,
-    {
-      '@type': 'ImageObject',
-      '@id': `${url}#primaryimage`,
-      url: ogImage,
-    },
-    ...NAV_PATHS.map((item) => ({
-      '@type': 'SiteNavigationElement',
-      '@id': `${SITE_URL}${item.path}#nav`,
-      name: item.name,
-      url: `${SITE_URL}${item.path}`,
-    })),
-  ];
+      isPartOf: { '@id': `${SITE_URL}#website` },
+    };
+    upsertJsonLd('enginuity-page-schema', pageSchema);
 
-  if (breadcrumbItems.length > 1) {
-    ldGraph.push({
+    if (canonicalPath === '/') {
+      document.getElementById('enginuity-breadcrumb-schema')?.remove();
+      return;
+    }
+
+    upsertJsonLd('enginuity-breadcrumb-schema', {
+      '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
-      '@id': `${url}#breadcrumb`,
-      itemListElement: breadcrumbItems,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: pageName, item: url },
+      ],
     });
-  }
+  }, [canonicalPath, cleanTitle, description, keywordString, ogImage, pageName, url]);
 
-  const ld = {
-    '@context': 'https://schema.org',
-    '@graph': ldGraph,
-  };
-
-  const defaultKeywords = [
-    'Enginuity',
-    'Enginuity nonprofit',
-    'Anvay Ajmera',
-    'anvay ajmera enginuity',
-    'engineering education',
-    'pcb',
-    'cad',
-    'UN youth advocacy',
-  ];
-  const keywordList = Array.from(new Set([...defaultKeywords, ...keywords]));
-
-  return (
-    <>
-      <title>{cleanTitle}</title>
-      <meta name="description" content={description} />
-      <meta name="keywords" content={keywordList.join(', ')} />
-      <meta name="author" content="Anvay Ajmera" />
-      <meta name="creator" content="Anvay Ajmera" />
-      <meta name="robots" content="index, follow" />
-      <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-      <link rel="canonical" href={url} />
-      <link rel="sitemap" type="application/xml" title="Sitemap" href={`${SITE_URL}/sitemap.xml`} />
-
-      <meta property="og:site_name" content="Enginuity" />
-      <meta property="og:title" content={cleanTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={url} />
-      <meta property="og:image" content={ogImage} />
-      <meta property="og:image:alt" content={`${pageName} - Enginuity`} />
-      <meta property="og:locale" content="en_US" />
-
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={cleanTitle} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
-      <meta name="twitter:image:alt" content={`${pageName} - Enginuity`} />
-      <meta name="twitter:site" content="@enginuitystem" />
-      <meta name="twitter:creator" content="@anvayajmera" />
-
-      <script type="application/ld+json">{jsonLd(ld)}</script>
-    </>
-  );
+  // The static build creates these page-schema nodes for direct crawls. This
+  // component updates those same nodes during client-side navigation.
+  return null;
 }

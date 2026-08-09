@@ -46,6 +46,31 @@
       "statusCode": 308
     },
     {
+      "source": "/impact/",
+      "destination": "/impact",
+      "statusCode": 308
+    },
+    {
+      "source": "/united-nations/",
+      "destination": "/united-nations",
+      "statusCode": 308
+    },
+    {
+      "source": "/gallery/",
+      "destination": "/gallery",
+      "statusCode": 308
+    },
+    {
+      "source": "/siblings-keeper/",
+      "destination": "/siblings-keeper",
+      "statusCode": 308
+    },
+    {
+      "source": "/contact/",
+      "destination": "/contact",
+      "statusCode": 308
+    },
+    {
       "source": "\/(.*)",
       "destination": "https://www.enginuitystem.com/$1",
       "has": [
@@ -61,7 +86,6 @@
     { "source": "/gallery", "destination": "/gallery.html" },
     { "source": "/siblings-keeper", "destination": "/siblings-keeper.html" },
     { "source": "/contact", "destination": "/contact.html" },
-    { "source": "/:path*.:ext", "destination": "/:path*.:ext" },
-    { "source": "/:path*", "destination": "/index.html" }
+    { "source": "/:path*.:ext", "destination": "/:path*.:ext" }
   ]
 }

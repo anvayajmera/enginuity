@@ -53,7 +53,7 @@ const Contact = () => {
           className={`section-header fade-in reveal-left swoop ${headerVisible ? 'visible' : ''}`}
         >
           <div className="section-badge">Get In Touch</div>
-          <h2 className="section-title">Let's Do Something Amazing Together</h2>
+          <h1 className="section-title">Let's Do Something Amazing Together</h1>
           <p className="section-description">
             Want to launch a chapter, partner with our engineering program, or support kit deployment in underserved communities?
             Send us a message and we will connect with next steps.

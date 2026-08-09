@@ -8,7 +8,7 @@
   <link rel="apple-touch-icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Enginuity: Engineering for All</title>
-    <meta name="description" content="Enginuity is a global engineering-focused STEM program under Siblings Keeper, delivering custom kits, CAD and PCB learning, and youth-led global impact." />
+    <meta name="description" content="Enginuity is a global engineering-focused STEM program under Siblings Keeper, delivering custom PCB/CAD kits, hands-on learning, and UN-connected youth impact." />
     <meta name="keywords" content="Enginuity, engineering education, PCB, CAD, STEM kits, Siblings Keeper, UN youth, Anvay Ajmera" />
     <meta name="author" content="Anvay Ajmera" />
     <meta name="creator" content="Anvay Ajmera" />
@@ -18,14 +18,111 @@
     <link rel="sitemap" type="application/xml" title="Sitemap" href="https://www.enginuitystem.com/sitemap.xml" />
     <meta property="og:site_name" content="Enginuity" />
     <meta property="og:title" content="Enginuity: Engineering for All" />
-    <meta property="og:description" content="Explore hands-on engineering, custom kits, CAD and PCB learning, and global youth impact through Enginuity STEM." />
+    <meta property="og:description" content="Enginuity is a global engineering-focused STEM program under Siblings Keeper, delivering custom PCB/CAD kits, hands-on learning, and UN-connected youth impact." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.enginuitystem.com/" />
     <meta property="og:image" content="https://www.enginuitystem.com/favicon.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Enginuity: Engineering for All" />
-    <meta name="twitter:description" content="Global engineering-focused STEM education with custom kits, CAD and PCB learning, and real-world youth impact." />
+    <meta name="twitter:description" content="Enginuity is a global engineering-focused STEM program under Siblings Keeper, delivering custom PCB/CAD kits, hands-on learning, and UN-connected youth impact." />
     <meta name="twitter:image" content="https://www.enginuitystem.com/favicon.png" />
+    <style id="static-site-content-styles">
+      .static-site-content {
+        box-sizing: border-box;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0 24px 48px;
+        color: #171827;
+        background: #fbfcff;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      .static-site-content *, .static-site-content *::before, .static-site-content *::after { box-sizing: inherit; }
+      .static-site-content__header, .static-site-content__main, .static-site-content__footer {
+        width: min(1120px, 100%);
+        margin: 0 auto;
+      }
+      .static-site-content__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 22px 0;
+        border-bottom: 1px solid #dfe3ef;
+      }
+      .static-site-content__brand {
+        color: #171827;
+        font-size: 1.2rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .static-site-content__nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px 20px;
+      }
+      .static-site-content__nav a, .static-site-content__footer a {
+        color: #3f28a7;
+        font-weight: 650;
+        text-decoration: none;
+      }
+      .static-site-content__nav a[aria-current="page"] { color: #171827; text-decoration: underline; text-underline-offset: 4px; }
+      .static-site-content__main { padding: 88px 0 40px; }
+      .static-site-content__eyebrow {
+        margin: 0 0 12px;
+        color: #5c42d6;
+        font-size: 0.875rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .static-site-content h1 {
+        max-width: 760px;
+        margin: 0;
+        font-size: clamp(2.25rem, 6vw, 4.5rem);
+        line-height: 1.04;
+        letter-spacing: -0.05em;
+      }
+      .static-site-content__intro {
+        max-width: 760px;
+        margin: 24px 0 0;
+        color: #4c5063;
+        font-size: clamp(1.05rem, 2vw, 1.25rem);
+        line-height: 1.65;
+      }
+      .static-site-content__section { margin-top: 56px; }
+      .static-site-content h2 { margin: 0 0 18px; font-size: 1.5rem; letter-spacing: -0.025em; }
+      .static-site-content__cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      .static-site-content__cards a {
+        display: block;
+        min-height: 100%;
+        padding: 22px;
+        color: #171827;
+        background: #fff;
+        border: 1px solid #dfe3ef;
+        border-radius: 14px;
+        box-shadow: 0 8px 24px rgba(30, 35, 70, 0.06);
+        text-decoration: none;
+      }
+      .static-site-content__cards strong { display: block; color: #3f28a7; font-size: 1.05rem; }
+      .static-site-content__cards span { display: block; margin-top: 8px; color: #555a6d; line-height: 1.5; }
+      .static-site-content__footer { padding-top: 28px; color: #555a6d; border-top: 1px solid #dfe3ef; }
+      @media (max-width: 700px) {
+        .static-site-content { padding-right: 18px; padding-left: 18px; }
+        .static-site-content__header { align-items: flex-start; flex-direction: column; }
+        .static-site-content__nav { justify-content: flex-start; }
+        .static-site-content__main { padding-top: 56px; }
+      }
+    </style>
   <!-- PNG fallback is preserved -->
     <script type="application/ld+json">
     {
@@ -84,7 +181,10 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- static-site-content:start -->
+      <!-- static-site-content:end -->
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
