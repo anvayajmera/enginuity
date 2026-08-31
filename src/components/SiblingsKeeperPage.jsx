@@ -59,7 +59,7 @@ const SiblingsKeeperPage = () => (
             <h1>Siblings Keeper</h1>
             <p>
               Siblings Keeper Zambia helps children and families access education, nutrition, and long-term support.
-              Through Dominion School and community programs, they turn daily care into real opportunity.
+              Through Dominion School and community programs, they turn daily care into opportunity for all families. Enginuity STEM works directly under them.
             </p>
             <a href="https://siblingskeeper-zm.com/" target="_blank" rel="noopener noreferrer" className="siblings-cta">
               Visit Official Site
@@ -69,6 +69,31 @@ const SiblingsKeeperPage = () => (
           <div className="siblings-hero-media">
             <img src={skLogo} alt="Siblings Keeper logo" />
           </div>
+        </div>
+      </section>
+
+      <section className="siblings-gallery">
+        <div className="container">
+          <div className="siblings-section-head">
+            <h2>Photo Highlights</h2>
+            <p>
+              Visual highlights from Siblings Keeper Zambia&apos;s school and community programming.
+            </p>
+          </div>
+          <div className="siblings-mosaic">
+            <img src={classroom1} alt="Students working in class at Dominion School" />
+            <img src={feeding1} alt="Children in a feeding program" />
+            <img src={classroom2} alt="Students writing in classroom" />
+            <img src={feeding2} alt="Students sharing a meal at school" />
+            <img src={classroom3} alt="Young students in class activities" />
+            <img src={community1} alt="Community group supported by Siblings Keeper" />
+            <img src={classroom4} alt="Students participating in lessons" />
+            <img src={feeding3} alt="Children eating in community feeding session" />
+            <img src={feeding4} alt="Students receiving nutrition support" />
+          </div>
+          <p className="siblings-source">
+            Content and images adapted from <a href="https://siblingskeeper-zm.com/" target="_blank" rel="noopener noreferrer">siblingskeeper-zm.com</a>.
+          </p>
         </div>
       </section>
 
@@ -107,31 +132,6 @@ const SiblingsKeeperPage = () => (
               </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="siblings-gallery">
-        <div className="container">
-          <div className="siblings-section-head">
-            <h2>Photo Highlights</h2>
-            <p>
-              Visual highlights from Siblings Keeper Zambia&apos;s school and community programming.
-            </p>
-          </div>
-          <div className="siblings-mosaic">
-            <img src={classroom1} alt="Students working in class at Dominion School" />
-            <img src={feeding1} alt="Children in a feeding program" />
-            <img src={classroom2} alt="Students writing in classroom" />
-            <img src={feeding2} alt="Students sharing a meal at school" />
-            <img src={classroom3} alt="Young students in class activities" />
-            <img src={community1} alt="Community group supported by Siblings Keeper" />
-            <img src={classroom4} alt="Students participating in lessons" />
-            <img src={feeding3} alt="Children eating in community feeding session" />
-            <img src={feeding4} alt="Students receiving nutrition support" />
-          </div>
-          <p className="siblings-source">
-            Content and images adapted from <a href="https://siblingskeeper-zm.com/" target="_blank" rel="noopener noreferrer">siblingskeeper-zm.com</a>.
-          </p>
         </div>
       </section>
     </div>

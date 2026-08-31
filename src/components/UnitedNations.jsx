@@ -75,7 +75,7 @@ const UnitedNations = () => (
         <div className="section-header">
           <div className="section-bubble">Policy Work</div>
           <h2 className="section-title">United Nations Initiative</h2>
-          <p className="section-description">From ECOSOC to HLPF and CSocD, our delegates speak, connect, and build partnerships that move youth ideas into real action.</p>
+          <p className="section-description">From ECOSOC to HLPF to CSocD to STI, delegates in our team speak, connect, and build partnerships that move youth ideas into actionable plans.</p>
         </div>
 
         <div className="un-details">
@@ -103,12 +103,11 @@ const UnitedNations = () => (
               <div className="gallery-copy">
                 <div className="gallery-copy-inner">
                   <h3 className="gallery-title">Youth Engineering at UN Scale</h3>
-                  <p className="gallery-lead">Enginuity representatives were invited to major UN forums in New York, where we pushed practical conversations on engineering access, digital inclusion, and youth leadership in policy.<br />Highlights from 2025:</p>
+                  <p className="gallery-lead">Enginuity representatives were invited to major UN forums in New York, where we pushed practical conversations on engineering access, bridging the digital divide, and youth leadership in policy.<br />Highlights from 2025 at a glance:</p>
 
                   <ul className="gallery-points" aria-hidden>
-                    <li><strong>ECOSOC Youth Forum 2025: </strong>Engaged leaders including Ambassador Bob Rae and Larry Irving at UN Headquarters.</li>
-                    <li><strong>HLPF 2025: </strong>Participated alongside the UN Major Group for Children and Youth in a global assembly of 6,000+ stakeholders.</li>
-                    <li><strong>CSocD64 + International Youth Conference: </strong>Delivered youth-led interventions on governing technology and bridging digital divides.</li>
+                    <li><strong>Participated alongside the UN MGCY in a global assembly of 6,000+ stakeholders.</strong></li>
+                    <li><strong>Delivered youth-led interventions on governing technology.</strong></li>
                   </ul>
 
                   <div className="gallery-cta">
@@ -132,7 +131,7 @@ const UnitedNations = () => (
                 </svg>
               </div>
               <h3>SDG 4: Quality Education</h3>
-              <p>We build classroom-ready engineering modules covering CAD, circuitry, and hands-on assembly so students learn by building real systems.</p>
+              <p>We build classroom-ready engineering modules covering CAD, circuitry, and hands-on assembly so students learn by building complete products.</p>
             </div>
 
             <div className="sdg-card glass" aria-hidden>
@@ -143,7 +142,7 @@ const UnitedNations = () => (
                 </svg>
               </div>
               <h3>SDG 10: Reduced Inequalities</h3>
-              <p>Through Siblings Keeper partnerships, we deliver devices and engineering kits to underserved schools to reduce technology inequality at the source.</p>
+              <p>Through Siblings Keeper partnerships, we deliver devices and engineering kits to underserved schools to reduce technology inequality where it&apos;s most important.</p>
             </div>
 
             <div className="sdg-card glass" aria-hidden>
@@ -154,7 +153,7 @@ const UnitedNations = () => (
                 </svg>
               </div>
               <h3>SDG 17: Partnerships</h3>
-              <p>We collaborate with member-state offices, schools, NGOs, and UN youth structures to scale durable engineering education across regions.</p>
+              <p>We collaborate with member-state offices, schools, NGOs, and UN youth structures to scale durable engineering education opportunities across all regions.</p>
             </div>
           </div>
         </div>

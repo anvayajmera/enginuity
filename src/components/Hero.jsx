@@ -53,7 +53,7 @@ const Hero = () => {
           </div>
           <h1 className="glow-text visible">Enginuity <span className="underline">STEM Program</span></h1>
           <p className="hero-subtitle">
-            We&apos;re Enginuity, a global engineering-focused STEM program under Siblings Keeper. We build and ship custom kits, teach CAD and circuitry hands-on, and work with schools plus UN partners to create real opportunities for students.
+            We&apos;re Enginuity, a global engineering-focused STEM program under Siblings Keeper with United Nations ECOSOC Special Consultative Status. We build and ship custom kits, teach hands-on CAD and circuitry, and work with schools and UN member states to create opportunities for students of all places.
           </p>
           <div className="hero-cta">
             <a href="/impact" className="btn btn-primary">Start Engineering</a>

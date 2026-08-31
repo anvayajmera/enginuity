@@ -4,7 +4,7 @@ import SEO from './SEO';
 import './Impact.css';
 
 const stats = [
-  { label: "Students Reached", value: "18k+" },
+  { label: "Students Reached", value: "2,100+" },
   { label: "Clubs Supported", value: "420+" },
   { label: "Projects Built", value: "1.2k+" },
   { label: "Volunteer Hours", value: "45k+" },

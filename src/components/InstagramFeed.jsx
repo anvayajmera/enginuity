@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
-  GALLERY_USERNAME,
   buildGalleryFeedUrl,
   readGalleryCache,
   toGalleryProxyUrl,
@@ -8,6 +7,27 @@ import {
   writeGalleryCache,
 } from '../utils/galleryCache';
 import './InstagramFeed.css';
+import suppliesImg from '../../supplies.png';
+import bluetoothKitImg from '../../images/bluetooth kit.png';
+import kitsImg from '../../images/kit.png';
+import zambiaSuccessImg from '../../zambiasuccess.png';
+import anvaySpeakingImg from '../../images/anvayspeakingun.JPG';
+import hlpfImg from '../../images/hlpfun.JPG';
+import siblingsClassroomImg from '../../images/siblingskeeper/classroom-1.jpeg';
+import siblingsCommunityImg from '../../images/siblingskeeper/community-1.jpeg';
+import apexSpaceImg from '../../images/apexspace.jpg';
+
+const GALLERY_HIGHLIGHTS = [
+  { id: 'highlight-kits', caption: 'Custom engineering modules prepared for hands-on classroom learning.', media_type: 'IMAGE', media_url: suppliesImg, permalink: '/impact', is_local: true },
+  { id: 'highlight-bluetooth', caption: 'Students explore circuitry through complete Bluetooth kit assemblies.', media_type: 'IMAGE', media_url: bluetoothKitImg, permalink: '/impact', is_local: true },
+  { id: 'highlight-module', caption: 'Build-first engineering turns designs into complete products.', media_type: 'IMAGE', media_url: kitsImg, permalink: '/impact', is_local: true },
+  { id: 'highlight-zambia', caption: 'Engineering access reaches partner classrooms in Zambia and beyond.', media_type: 'IMAGE', media_url: zambiaSuccessImg, permalink: '/impact', is_local: true },
+  { id: 'highlight-un-speech', caption: 'Youth-led engineering advocacy at United Nations forums.', media_type: 'IMAGE', media_url: anvaySpeakingImg, permalink: '/united-nations', is_local: true },
+  { id: 'highlight-hlpf', caption: 'Enginuity representatives connect youth ideas with global action.', media_type: 'IMAGE', media_url: hlpfImg, permalink: '/united-nations', is_local: true },
+  { id: 'highlight-classroom', caption: 'Students learn through daily classroom support at Dominion School.', media_type: 'IMAGE', media_url: siblingsClassroomImg, permalink: '/siblings-keeper', is_local: true },
+  { id: 'highlight-community', caption: 'Siblings Keeper programs support children, families, and communities.', media_type: 'IMAGE', media_url: siblingsCommunityImg, permalink: '/siblings-keeper', is_local: true },
+  { id: 'highlight-apex', caption: 'Student engineering projects connect design, testing, and deployment.', media_type: 'IMAGE', media_url: apexSpaceImg, permalink: '/impact', is_local: true },
+];
 
 const SYNTHETIC_DATE_STEP_DAYS = 21;
 
@@ -79,12 +99,12 @@ const InstagramFeed = () => {
   const initialCache = initialCacheRef.current;
   const cachedPosts = Array.isArray(initialCache?.posts) ? dedupeById(initialCache.posts) : [];
   const cachedPagination = initialCache?.pagination || {};
+  const initialPosts = cachedPosts.length > 0 ? cachedPosts : GALLERY_HIGHLIGHTS;
 
-  const [posts, setPosts] = useState(cachedPosts);
-  const [isLoadingInitial, setIsLoadingInitial] = useState(cachedPosts.length === 0);
+  const [posts, setPosts] = useState(initialPosts);
+  const [isLoadingInitial, setIsLoadingInitial] = useState(false);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [isConfigured, setIsConfigured] = useState(Boolean(initialCache?.configured));
-  const [profile, setProfile] = useState(initialCache?.profile || null);
   const [nextCursor, setNextCursor] = useState(
     typeof cachedPagination.next_cursor === 'string' ? cachedPagination.next_cursor : null,
   );
@@ -106,14 +126,15 @@ const InstagramFeed = () => {
         const response = await fetch(buildGalleryFeedUrl({ cursor }));
         const payload = await response.json();
         if (!response.ok) {
-          throw new Error(payload?.error || 'Unable to load Instagram posts');
+          throw new Error(payload?.error || 'Unable to load gallery images');
         }
         if (!mounted) return;
 
         const incomingPosts = Array.isArray(payload.posts) ? payload.posts : [];
-        setPosts((prev) => dedupeById(cursor ? [...prev, ...incomingPosts] : incomingPosts));
+        setPosts((prev) => dedupeById(cursor
+          ? [...prev, ...incomingPosts]
+          : (incomingPosts.length > 0 ? incomingPosts : GALLERY_HIGHLIGHTS)));
         setIsConfigured(Boolean(payload.configured));
-        setProfile((prev) => payload.profile || prev);
 
         const pagination = payload?.pagination || {};
         const cursorValue = typeof pagination.next_cursor === 'string' ? pagination.next_cursor : null;
@@ -122,7 +143,7 @@ const InstagramFeed = () => {
         setNextCursor(cursorValue);
         setError(null);
 
-        if (!cursor) {
+        if (!cursor && incomingPosts.length > 0) {
           writeGalleryCache({
             configured: Boolean(payload.configured),
             profile: payload.profile || null,
@@ -131,16 +152,15 @@ const InstagramFeed = () => {
           });
           warmGalleryMedia(incomingPosts);
         }
-      } catch (err) {
+      } catch {
         if (!mounted) return;
         if (!cursor) {
-          setPosts([]);
+          setPosts((prev) => (prev.length > 0 ? prev : GALLERY_HIGHLIGHTS));
           setIsConfigured(false);
-          setProfile(null);
         }
         setHasNextPage(false);
         setNextCursor(null);
-        setError(err instanceof Error ? err.message : 'Unable to load gallery');
+        setError(cursor ? 'Unable to load older gallery images right now.' : null);
       } finally {
         if (mounted) {
           if (cursor) setIsLoadingMore(false);
@@ -163,7 +183,7 @@ const InstagramFeed = () => {
       const response = await fetch(buildGalleryFeedUrl({ cursor: nextCursor }));
       const payload = await response.json();
       if (!response.ok) {
-        throw new Error(payload?.error || 'Unable to load older posts');
+        throw new Error(payload?.error || 'Unable to load older gallery images');
       }
 
       const incomingPosts = Array.isArray(payload.posts) ? payload.posts : [];
@@ -176,19 +196,13 @@ const InstagramFeed = () => {
     } catch (err) {
       setHasNextPage(false);
       setNextCursor(null);
-      setError(err instanceof Error ? err.message : 'Unable to load older posts');
+      setError(err instanceof Error ? err.message : 'Unable to load older gallery images');
     } finally {
       setIsLoadingMore(false);
     }
   };
 
   const hasPosts = useMemo(() => posts.length > 0, [posts]);
-  const totalPosts = profile?.post_count || null;
-  const totalLikes = useMemo(
-    () => posts.reduce((sum, post) => sum + (Number(post?.like_count) || 0), 0),
-    [posts],
-  );
-  const followerCount = typeof profile?.followers === 'number' ? profile.followers : null;
   const displayDateMap = useMemo(() => buildDisplayDateMap(posts), [posts]);
 
   return (
@@ -198,40 +212,8 @@ const InstagramFeed = () => {
           <div className="section-badge">Gallery</div>
           <h1 className="section-title">Enginuity in Action</h1>
           <p className="section-description">
-            A live timeline from @{GALLERY_USERNAME} featuring kit builds, CAD and PCB modules, UN participation, and global partner deployments.
+            Explore highlights from kit builds, CAD and PCB modules, UN participation, and global partner deployments.
           </p>
-        </div>
-
-        <div className="gallery-intro-panel">
-          <div className="gallery-profile-card">
-            <div className="gallery-profile-metric">
-              <strong>{followerCount !== null ? followerCount.toLocaleString() : '—'}</strong>
-              <span>Followers</span>
-            </div>
-            <div className="gallery-profile-metric">
-              <strong>{(totalPosts || posts.length).toLocaleString()}</strong>
-              <span>Total Posts</span>
-            </div>
-            <div className="gallery-profile-metric">
-              <strong>{totalLikes.toLocaleString()}</strong>
-              <span>Total Likes</span>
-            </div>
-            <div className="gallery-profile-metric">
-              <strong>{posts.length.toLocaleString()}</strong>
-              <span>
-                {totalPosts ? `Loaded of ${totalPosts.toLocaleString()}` : 'Posts Loaded'}
-              </span>
-            </div>
-            <p>{profile?.biography || 'Live Instagram stats update as posts sync into the gallery.'}</p>
-          </div>
-          <a
-            href="https://www.instagram.com/enginuitystem_program/"
-            className="btn btn-secondary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Open Instagram
-          </a>
         </div>
 
         {isLoadingInitial && (
@@ -247,7 +229,7 @@ const InstagramFeed = () => {
                 ? error
                 : (isConfigured
                   ? 'No gallery posts were returned right now.'
-                  : 'Gallery is ready but Instagram data was not available for this request.')}
+                  : 'Gallery images are not available for this request right now.')}
             </p>
           </div>
         )}
@@ -259,7 +241,7 @@ const InstagramFeed = () => {
                 const sourceUrl = post.media_type === 'VIDEO'
                   ? (post.media_url || post.thumbnail_url)
                   : (post.media_url || post.thumbnail_url);
-                const proxyUrl = toGalleryProxyUrl(sourceUrl);
+                const proxyUrl = post.is_local ? null : toGalleryProxyUrl(sourceUrl);
                 const imageUrl = proxyUrl || sourceUrl;
                 const cardClass =
                   index === 0
@@ -271,10 +253,15 @@ const InstagramFeed = () => {
                 if (!imageUrl) return null;
                 return (
                   <article key={post.id} className={cardClass}>
-                    <a href={post.permalink} target="_blank" rel="noopener noreferrer" className="gallery-media-link">
+                    <a
+                      href={post.permalink}
+                      target={post.is_local ? undefined : '_blank'}
+                      rel={post.is_local ? undefined : 'noopener noreferrer'}
+                      className="gallery-media-link"
+                    >
                       <img
                         src={imageUrl}
-                        alt={truncate(post.caption, 80) || 'Instagram post'}
+                        alt={truncate(post.caption, 80) || 'Enginuity gallery image'}
                         className="gallery-media"
                         loading={index < 8 ? 'eager' : 'lazy'}
                         fetchPriority={index < 3 ? 'high' : 'auto'}
@@ -287,9 +274,11 @@ const InstagramFeed = () => {
                       <div className="gallery-overlay">
                         <div className="gallery-overlay-top">
                           <span className="gallery-type">{post.media_type === 'VIDEO' ? 'Video' : 'Post'}</span>
-                          <span className="gallery-date">{displayDateMap.get(post.id) || formatDate(post.timestamp)}</span>
+                          {!post.is_local && (
+                            <span className="gallery-date">{displayDateMap.get(post.id) || formatDate(post.timestamp)}</span>
+                          )}
                         </div>
-                        <p>{truncate(post.caption, 145) || 'View this post on Instagram.'}</p>
+                        <p>{truncate(post.caption, 145) || 'View this Enginuity gallery highlight.'}</p>
                       </div>
                     </a>
                   </article>

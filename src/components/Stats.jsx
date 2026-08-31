@@ -5,11 +5,10 @@ const Stats = () => {
   const [_countersStarted, _setCountersStarted] = useState(false);
   const statsRef = useRef(null);
   const svgPathRef = useRef(null);
-  const particleSystemRef = useRef(null);
 
   const stats = [
     {
-      number: 1700,
+      number: 2100,
       label: 'STUDENTS REACHED',
       icon: (
         <svg width="36" height="36" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
@@ -51,25 +50,6 @@ const Stats = () => {
   ];
 
   const [statValues, setStatValues] = useState(stats.map(() => 0));
-
-  // Create floating particles
-  useEffect(() => {
-    const createParticleSystem = () => {
-      if (particleSystemRef.current) {
-        for (let i = 0; i < 30; i++) {
-          const particle = document.createElement('div');
-          particle.className = 'stat-particle';
-          particle.style.left = Math.random() * 100 + '%';
-          particle.style.top = Math.random() * 100 + '%';
-          particle.style.animationDelay = Math.random() * 25 + 's';
-          particle.style.animationDuration = (Math.random() * 20 + 15) + 's';
-          particleSystemRef.current.appendChild(particle);
-        }
-      }
-    };
-
-    createParticleSystem();
-  }, []);
 
   // SVG Line Animation
   useEffect(() => {
@@ -153,7 +133,6 @@ const Stats = () => {
   return (
     <section id="stats" className="stats-section-new" ref={statsRef}>
       <div className="stats-background">
-        <div className="particle-system" ref={particleSystemRef}></div>
         <div className="stats-orbs">
           <div className="stats-orb stats-orb-1"></div>
           <div className="stats-orb stats-orb-2"></div>
@@ -182,7 +161,7 @@ const Stats = () => {
               </div>
               <div className="stat-content">
                 <div className="stat-number-new">
-                  {index === 0 && statValues[index] >= 1700 ? statValues[index].toLocaleString() + '+' : statValues[index].toLocaleString()}
+                  {index === 0 && statValues[index] >= 2100 ? statValues[index].toLocaleString() + '+' : statValues[index].toLocaleString()}
                 </div>
                 <div className="stat-label-new">{stat.label}</div>
                 <div className="stat-description">{stat.description}</div>
@@ -197,4 +176,3 @@ const Stats = () => {
 };
 
 export default Stats;
-

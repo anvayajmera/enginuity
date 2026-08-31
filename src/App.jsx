@@ -19,7 +19,7 @@ const Home = () => (
   <>
     <SEO
       title="Enginuity: Engineering for All"
-      description="Enginuity is a global engineering-focused STEM program under Siblings Keeper, delivering custom PCB/CAD kits, hands-on learning, and UN-connected youth impact."
+      description="Enginuity is a global engineering-focused STEM program under Siblings Keeper with United Nations ECOSOC Special Consultative Status."
       path="/"
       keywords={["enginuity", "engineering education", "pcb", "cad", "un youth", "siblings keeper", "stem kits"]}
     />

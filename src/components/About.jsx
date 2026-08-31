@@ -32,7 +32,7 @@ const About = () => {
     {
       id: '01',
       title: 'Innovation',
-      description: 'From CAD and PCB design to full kit assembly, we build engineering pathways students can touch, test, and improve in real classrooms.',
+      description: 'From CAD and PCB design, we build pathways to allow students to touch, test, and improve everywhere.',
       iconPath: 'M13 10V3L4 14h7v7l9-11h-7z' // Lightning bolt
     },
     {
@@ -44,7 +44,7 @@ const About = () => {
     {
       id: '03',
       title: 'Impact',
-      description: 'We focus on build-first engineering: students design, solder, assemble, and deploy real systems, with coding used as one tool in the process.',
+      description: 'We fully focus on build-first engineering, where students design, assemble, and deploy complete products, with coding used as one tool in the process.',
       iconPath: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z' // Star
     }
   ];

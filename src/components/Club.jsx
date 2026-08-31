@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import SEO from './SEO';
 import './Club.css';
 import zambiaSuccess from '../../zambiasuccess.png';
-import club2 from '../../images/club2.png';
 import kits1 from '../../kits1.png';
 import kits2 from '../../kits2.png';
 import suppliesImg from '../../supplies.png';
@@ -11,26 +10,8 @@ import bluetoothKitImg from '../../images/bluetooth kit.png';
 import anvayLatoyaImg from '../../images/anvay+latoya.png';
 
 const Club = () => {
-  const particlesRef = useRef(null);
   const [selectedSection, setSelectedSection] = useState('hero');
   const location = useLocation();
-
-  useEffect(() => {
-    // lightweight floating particles for visual polish
-    const el = particlesRef.current;
-    if (!el) return;
-    for (let i = 0; i < 20; i++) { // Increased particle count
-      const p = document.createElement('div');
-      p.className = 'club-particle';
-      p.style.left = Math.random() * 100 + '%';
-      p.style.top = Math.random() * 100 + '%';
-      p.style.animationDelay = Math.random() * 15 + 's';
-      p.style.animationDuration = (Math.random() * 15 + 10) + 's'; // Varied duration
-      el.appendChild(p);
-    }
-
-    return () => { if (el) el.innerHTML = ''; };
-  }, []);
 
   useEffect(() => {
     // smooth scroll to selected section
@@ -135,7 +116,6 @@ const Club = () => {
           </>
         </div>
         <div className="club-grid-pattern"></div>
-        <div className="club-particles" ref={particlesRef}></div>
          <div className="club-floating-shapes">
             <div className="shape shape-1"></div>
             <div className="shape shape-2"></div>
@@ -173,7 +153,7 @@ const Club = () => {
                 </span>
               </h1>
               <p className="hero-lead">
-                We build and ship custom engineering modules, train students in CAD and circuitry, and partner with schools and policymakers to expand hands-on STEM access worldwide.
+                We build and ship custom engineering modules, train students in CAD and circuitry, and partner with schools and policymakers to expand hands-on STEM access worldwide!
               </p>
               <div className="hero-actions">
                 <a href="#build" className="btn primary">Get Started</a>
@@ -221,7 +201,7 @@ const Club = () => {
               <div className="gallery-copy">
                 <div className="gallery-copy-inner">
                   <h3 className="gallery-title">Built, Packed, and Shipped</h3>
-                  <p className="gallery-lead">Every module is assembled for real classrooms, checked end-to-end, and shipped so students can start building from day one.</p>
+                  <p className="gallery-lead">Every module is assembled for classroom use, checked completely, and shipped so students can start utilizing our resources immediately.</p>
                   <ul className="gallery-points" aria-hidden>
                     <li><strong>Design to Device: </strong>Students move from CAD and circuit plans to physical parts and working assemblies.</li>
                     <li><strong>Hands-On Skills: </strong>Our modules cover wiring, PCB fundamentals, component testing, and troubleshooting.</li>
@@ -239,53 +219,11 @@ const Club = () => {
             </div>
           </div>
 
-          {/* Glassmorphism 4-box section: Student chapters & local impact */}
-          <div className="club-glassmorph-section">
-            <h3 className="club-glassmorph-title">How Our Engineering Program Operates</h3>
-            <div className="glass-row">
-              <div className="glass-box glass-img-box">
-                <img src={club2} alt="Enginuity club" className="glass-img" />
-              </div>
-              <div className="glass-box">
-                <div className="glass-num-wrap">
-                  <div className="glass-num-bg"></div>
-                  <div className="glass-num">1</div>
-                </div>
-                <div className="glass-text">Hands-on modules covering CAD, PCB fundamentals, circuitry, and system-level engineering.</div>
-              </div>
-              <div className="glass-box">
-                <div className="glass-num-wrap">
-                  <div className="glass-num-bg"></div>
-                  <div className="glass-num">2</div>
-                </div>
-                <div className="glass-text">Youth leadership opportunities in outreach, chapter operations, and real community problem-solving.</div>
-              </div>
-              <div className="glass-box">
-                <div className="glass-num-wrap">
-                  <div className="glass-num-bg"></div>
-                  <div className="glass-num">3</div>
-                </div>
-                <div className="glass-text">Custom kit logistics, partner support, and grant-backed resources for underserved classrooms.</div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
   {/* Our Club overview removed as requested */}
 
-  <section id="join" className="club-cta-section">
-        <div className="container">
-          <div className="cta-card">
-            <div className="cta-glow"></div>
-            <h3 className="cta-title">Build With Enginuity</h3>
-            <p className="cta-description">Join as a student engineer, school partner, or supporter and help us scale hands-on engineering access across underserved communities.</p>
-            <div className="apply-wrap">
-              <a href="/contact" className="btn primary">Contact Us</a>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

@@ -6,7 +6,7 @@ const GalleryPage = () => (
   <>
     <SEO
       title="Enginuity: Gallery"
-      description="Live Enginuity gallery featuring custom engineering kits, CAD and PCB learning, UN engagement, and global school partnership updates."
+      description="Enginuity gallery featuring custom engineering kits, CAD and PCB learning, UN engagement, and global school partnership highlights."
       path="/gallery"
       keywords={['enginuity gallery', 'engineering kits', 'pcb education', 'cad curriculum', 'un youth advocacy']}
     />

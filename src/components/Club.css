@@ -462,16 +462,6 @@
   animation: grid-pan 60s linear infinite;
 }
 
-.club-particles .club-particle {
-  position: absolute;
-  width: 2px; height: 2px;
-  background: white;
-  border-radius: 50%;
-  box-shadow: 0 0 8px var(--club-primary-blue), 0 0 12px var(--club-primary-blue);
-  animation: sparkle-float linear infinite;
-  opacity: 0;
-}
-
 .club-floating-shapes .shape {
   position: absolute; opacity: 0.08; will-change: transform;
   animation: subtle-float 25s ease-in-out infinite alternate;
